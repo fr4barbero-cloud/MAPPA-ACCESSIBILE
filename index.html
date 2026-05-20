@@ -31,6 +31,7 @@
 
     body {
       margin: 0;
+      text-transform: uppercase;
       font-family: Arial, Helvetica, sans-serif;
       background: var(--bg);
       color: var(--text);
@@ -1498,6 +1499,140 @@
       }
     }
 
+
+/* PERSONALIZZAZIONE COLORI RICHIESTA */
+.button-link {
+  background: #c40000 !important;
+  border-color: #c40000 !important;
+  color: #ffffff !important;
+}
+
+.button-link.scheda-luogo {
+  background: var(--category-color) !important;
+  border-color: var(--category-color) !important;
+  color: #ffffff !important;
+}
+
+/* popup */
+.popup-actions a:first-child {
+  background: #c40000 !important;
+  color: #ffffff !important;
+}
+
+
+/* CORREZIONE FINALE COLORI PULSANTI */
+body.musei .poi-actions .button-link:first-child,
+body.edifici .poi-actions .button-link:first-child,
+body.locali .poi-actions .button-link:first-child,
+body.mia .poi-actions .button-link:first-child,
+.poi-actions .button-link:first-child,
+.popup-actions a:first-child {
+  background: #c40000 !important;
+  border-color: #c40000 !important;
+  color: #ffffff !important;
+}
+
+body.musei .button-link.scheda-luogo {
+  background: var(--blue) !important;
+  border-color: var(--blue) !important;
+  color: #ffffff !important;
+}
+
+body.edifici .button-link.scheda-luogo {
+  background: var(--green) !important;
+  border-color: var(--green) !important;
+  color: #ffffff !important;
+}
+
+body.locali .button-link.scheda-luogo {
+  background: var(--orange) !important;
+  border-color: var(--orange) !important;
+  color: #ffffff !important;
+}
+
+body.mia .button-link.scheda-luogo {
+  background: var(--purple) !important;
+  border-color: var(--purple) !important;
+  color: #ffffff !important;
+}
+
+body.musei .popup-actions a.popup-scheda {
+  background: var(--blue) !important;
+  color: #ffffff !important;
+}
+
+body.edifici .popup-actions a.popup-scheda {
+  background: var(--green) !important;
+  color: #ffffff !important;
+}
+
+body.locali .popup-actions a.popup-scheda {
+  background: var(--orange) !important;
+  color: #ffffff !important;
+}
+
+body.mia .popup-actions a.popup-scheda {
+  background: var(--purple) !important;
+  color: #ffffff !important;
+}
+
+
+/* FORZA PORTAMI QUI SEMPRE ROSSO */
+a.button-link:not(.scheda-luogo):not(.info),
+.popup-actions a[href*="google.com/maps"] {
+  background: #c40000 !important;
+  border-color: #c40000 !important;
+  color: #ffffff !important;
+}
+
+
+/* FIX DEFINITIVO PORTAMI QUI */
+.poi-actions a:nth-child(1),
+.popup-actions a:nth-child(1) {
+  background: #c40000 !important;
+  border-color: #c40000 !important;
+  color: #ffffff !important;
+}
+
+/* Evita override delle categorie */
+body.musei .poi-actions a:nth-child(1),
+body.edifici .poi-actions a:nth-child(1),
+body.locali .poi-actions a:nth-child(1),
+body.mia .poi-actions a:nth-child(1) {
+  background: #c40000 !important;
+  border-color: #c40000 !important;
+  color: #ffffff !important;
+}
+
+
+/* PORTAMI QUI SEMPRE ROSSO - REGOLA DEFINITIVA */
+a.portami-qui,
+.button-link.portami-qui,
+.poi-actions a.portami-qui,
+.popup-actions a.portami-qui,
+body.musei a.portami-qui,
+body.edifici a.portami-qui,
+body.locali a.portami-qui,
+body.mia a.portami-qui,
+body.musei .button-link.portami-qui,
+body.edifici .button-link.portami-qui,
+body.locali .button-link.portami-qui,
+body.mia .button-link.portami-qui {
+  background: #c40000 !important;
+  border-color: #c40000 !important;
+  color: #ffffff !important;
+}
+
+
+/* PORTAMI QUI: ROSSO ASSOLUTO */
+a.portami-qui[style],
+a.portami-qui,
+.button-link.portami-qui {
+  background: #c40000 !important;
+  border-color: #c40000 !important;
+  color: #ffffff !important;
+}
+
 </style>
 </head>
 
@@ -1560,24 +1695,30 @@
             </div>
 
             <div>
-              <label for="personalDescription">Descrizione breve</label>
+              <label for="personalDescription">NOTE</label>
               <textarea id="personalDescription" required></textarea>
             </div>
 
             <div>
-              <label for="personalOrari">Orari</label>
-              <textarea id="personalOrari" placeholder="Esempio: dal lunedì al venerdì, 9:00 - 12:00"></textarea>
+              <label for="personalOrari">ORARI</label>
+              <textarea id="personalOrari" placeholder="ESEMPIO: DAL LUNEDÌ AL VENERDÌ, 9:00 - 12:00"></textarea>
             </div>
 
             <div>
-              <label for="personalContatti">Contatti</label>
-              <textarea id="personalContatti" placeholder="Esempio: telefono, email o referente"></textarea>
+              <label for="personalContatti">CONTATTI</label>
+              <textarea id="personalContatti" placeholder="ESEMPIO: TELEFONO, EMAIL O REFERENTE"></textarea>
             </div>
 
             <div>
-              <label for="personalSito">Sito internet</label>
-              <input id="personalSito" type="text" placeholder="Esempio: www.sito.it">
+              <label for="personalSito">SITO INTERNET</label>
+              <input id="personalSito" type="text" placeholder="ESEMPIO: WWW.SITO.IT">
             </div>
+
+            
+
+            
+
+            
 
             
 
@@ -1648,17 +1789,17 @@
 
       <div class="info-useful-content">
         <div class="info-box">
-          <span class="info-label">Orari</span>
+          <span class="info-label">ORARI</span>
           <div id="infoOrari" class="info-value"></div>
         </div>
 
         <div class="info-box">
-          <span class="info-label">Contatti</span>
+          <span class="info-label">CONTATTI</span>
           <div id="infoContatti" class="info-value"></div>
         </div>
 
         <div class="info-box">
-          <span class="info-label">Sito internet</span>
+          <span class="info-label">SITO INTERNET</span>
           <div id="infoSito" class="info-value"></div>
         </div>
       </div>
@@ -1696,6 +1837,11 @@
         foto: "img/palazzo-comunale.jpg",
         accesso: "ok",
         categoria: "edifici",
+        infoUtili: {
+          orari: "INSERISCI QUI GLI ORARI.",
+          contatti: "INSERISCI QUI I CONTATTI.",
+          sito: "INSERISCI QUI IL SITO INTERNET."
+        },
         accessibilita: {
           sediaRotelle: "Sì",
           ascensore: "Sì",
@@ -1715,6 +1861,11 @@
         foto: "img/museo-civico.jpg",
         accesso: "ok",
         categoria: "musei",
+        infoUtili: {
+          orari: "INSERISCI QUI GLI ORARI.",
+          contatti: "INSERISCI QUI I CONTATTI.",
+          sito: "INSERISCI QUI IL SITO INTERNET."
+        },
         accessibilita: {
           sediaRotelle: "Sì",
           ascensore: "Sì",
@@ -1734,6 +1885,11 @@
         foto: "img/biblioteca-civica.jpg",
         accesso: "ok",
         categoria: "edifici",
+        infoUtili: {
+          orari: "INSERISCI QUI GLI ORARI.",
+          contatti: "INSERISCI QUI I CONTATTI.",
+          sito: "INSERISCI QUI IL SITO INTERNET."
+        },
         accessibilita: {
           sediaRotelle: "Sì",
           ascensore: "Sì",
@@ -1753,6 +1909,11 @@
         foto: "img/giardino-storico.jpg",
         accesso: "ok",
         categoria: "locali",
+        infoUtili: {
+          orari: "INSERISCI QUI GLI ORARI.",
+          contatti: "INSERISCI QUI I CONTATTI.",
+          sito: "INSERISCI QUI IL SITO INTERNET."
+        },
         accessibilita: {
           sediaRotelle: "Sì",
           ascensore: "Sì",
@@ -1772,6 +1933,11 @@
         foto: "img/teatro-civico.jpg",
         accesso: "parziale",
         categoria: "locali",
+        infoUtili: {
+          orari: "INSERISCI QUI GLI ORARI.",
+          contatti: "INSERISCI QUI I CONTATTI.",
+          sito: "INSERISCI QUI IL SITO INTERNET."
+        },
         accessibilita: {
           sediaRotelle: "Sì",
           ascensore: "Sì",
@@ -1831,6 +1997,9 @@
     const personalName = document.getElementById("personalName");
     const personalAddress = document.getElementById("personalAddress");
     const personalDescription = document.getElementById("personalDescription");
+    const personalOrari = document.getElementById("personalOrari");
+    const personalContatti = document.getElementById("personalContatti");
+    const personalSito = document.getElementById("personalSito");
     
     
     const personalImage = document.getElementById("personalImage");
@@ -1964,9 +2133,9 @@
         isPersonal: true,
         personalIndex: index,
         infoUtili: {
-          orari: place.orari || "Orari non inseriti.",
-          contatti: place.contatti || "Contatti non inseriti.",
-          sito: place.sito || "Sito internet non inserito."
+          orari: place.orari || "ORARI NON INSERITI.",
+          contatti: place.contatti || "CONTATTI NON INSERITI.",
+          sito: place.sito || "SITO INTERNET NON INSERITO."
         }
       })).filter(place => Number.isFinite(place.lat) && Number.isFinite(place.lng));
     }
@@ -2006,14 +2175,7 @@
       const stops = getCurrentStops();
       const points = stops.map(tappa => [tappa.lat, tappa.lng]);
 
-      routeLine = L.polyline(points, {
-        color: "#003f8f",
-        weight: 8,
-        opacity: 0.95,
-        lineCap: "round",
-        lineJoin: "round"
-      }).addTo(map);
-
+      
       stops.forEach((tappa, index) => {
         const number = index + 1;
 
@@ -2030,7 +2192,7 @@
           <div>${tappa.descrizione}</div>
 
           <div class="popup-actions">
-            <a href="${googleMapsLink(tappa, "walking")}" target="_blank" rel="noopener">Portami qui</a>
+            <a class="portami-qui" style="background:#c40000 !important; border-color:#c40000 !important; color:#ffffff !important;" href="${googleMapsLink(tappa, "walking")}" target="_blank" rel="noopener">Portami qui</a>
             <a href="#" class="popup-info open-info-utili" data-index="${index}">Info utili</a>
             ${tappa.isPersonal ? "" : `<a href="#" class="popup-scheda open-scheda" data-index="${index}">Scheda del luogo</a>`}
           </div>
@@ -2079,10 +2241,10 @@
           <p class="place-description">${tappa.descrizione}</p>
 
           <div class="actions poi-actions" aria-label="Azioni per ${tappa.nome}">
-            <a class="button-link" href="${googleMapsLink(tappa, "walking")}" target="_blank" rel="noopener">
+            <a class="button-link portami-qui" style="background:#c40000 !important; border-color:#c40000 !important; color:#ffffff !important;" href="${googleMapsLink(tappa, "walking")}" target="_blank" rel="noopener">
               Portami qui
             </a>
-            <a class="button-link info" href="#lista-tappe">
+            <a class="button-link info open-info-utili" href="#" data-index="${index}">
               Info utili
             </a>
             <a class="button-link scheda-luogo open-scheda" href="#" data-index="${index}">
@@ -2095,9 +2257,23 @@
       });
     }
 
+
+    function forcePortamiQuiRosso() {
+      document.querySelectorAll("a").forEach(function(link) {
+        if (link.textContent.trim().toUpperCase() === "PORTAMI QUI") {
+          link.classList.add("portami-qui");
+          link.style.setProperty("background", "#c40000", "important");
+          link.style.setProperty("border-color", "#c40000", "important");
+          link.style.setProperty("color", "#ffffff", "important");
+        }
+      });
+    }
+
     function renderAll() {
       renderMap();
       renderList();
+      forcePortamiQuiRosso();
+      setTimeout(forcePortamiQuiRosso, 100);
     }
 
     function initHomeCityMap() {
@@ -2127,6 +2303,8 @@
         maxZoom: 19,
         attribution: "&copy; OpenStreetMap"
       }).addTo(map);
+
+      map.on("popupopen", forcePortamiQuiRosso);
 
       if (currentCategory) {
         renderAll();
@@ -2237,7 +2415,7 @@
     const infoSito = document.getElementById("infoSito");
 
     function formatSito(value) {
-      if (!value || value === "Sito internet non inserito." || value === "Inserisci qui il sito internet.") {
+      if (!value || value === "Sito internet non inserito." || value === "Inserisci qui il sito internet." || value === "SITO INTERNET NON INSERITO." || value === "INSERISCI QUI IL SITO INTERNET.") {
         return value || "Sito internet non inserito.";
       }
 
@@ -2252,14 +2430,14 @@
       if (!tappa) return;
 
       const info = tappa.infoUtili || {
-        orari: "Inserisci qui gli orari del luogo.",
-        contatti: "Inserisci qui telefono, email o referente.",
-        sito: "Inserisci qui il sito internet."
+        orari: "INSERISCI QUI GLI ORARI DEL LUOGO.",
+        contatti: "INSERISCI QUI TELEFONO, EMAIL O REFERENTE.",
+        sito: "INSERISCI QUI IL SITO INTERNET."
       };
 
       infoUtiliTitle.textContent = "Info utili - " + tappa.nome;
-      infoOrari.textContent = info.orari || "Orari non inseriti.";
-      infoContatti.textContent = info.contatti || "Contatti non inseriti.";
+      infoOrari.textContent = info.orari || "ORARI NON INSERITI.";
+      infoContatti.textContent = info.contatti || "CONTATTI NON INSERITI.";
       infoSito.innerHTML = formatSito(info.sito);
 
       infoUtiliModal.classList.add("open");
