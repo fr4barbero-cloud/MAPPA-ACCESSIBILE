@@ -2,7 +2,20 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#1565c0" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  
+  <meta name="theme-color" content="#1565c0" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="application-name" content="Mappa Accessibile" />
+  <meta name="apple-mobile-web-app-title" content="Mappa Accessibile" />
+  <link rel="manifest" href="manifest.json" />
+
   <title>Mappa accessibile - Percorsi turistici</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -1633,31 +1646,1851 @@ a.portami-qui,
   color: #ffffff !important;
 }
 
+
+/* OTTIMIZZAZIONE DEFINITIVA SMARTPHONE */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+main {
+  width: 100%;
+  max-width: 100%;
+}
+
+img,
+.leaflet-container {
+  max-width: 100%;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  touch-action: manipulation;
+}
+
+@media (max-width: 759px) {
+  body {
+    font-size: 18px !important;
+    line-height: 1.35 !important;
+  }
+
+  main {
+    padding: 6px !important;
+  }
+
+  .section {
+    width: 100% !important;
+    margin: 0 0 10px 0 !important;
+    padding: 10px !important;
+    border-radius: 14px !important;
+  }
+
+  .home-screen {
+    gap: 10px !important;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .category-button {
+    width: 100% !important;
+    min-height: 74px !important;
+    padding: 12px !important;
+    font-size: 1.12rem !important;
+    border-radius: 16px !important;
+  }
+
+  .category-button .small {
+    font-size: .88rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .map-card {
+    padding: 0 !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+  }
+
+  .map-title,
+  .home-city-map-title {
+    padding: 10px !important;
+    font-size: 1rem !important;
+    text-align: center !important;
+  }
+
+  #map {
+    height: 58vh !important;
+    min-height: 340px !important;
+    max-height: 520px !important;
+  }
+
+  #homeCityMap {
+    height: 280px !important;
+    min-height: 260px !important;
+  }
+
+  .map-note {
+    display: none !important;
+  }
+
+  .legend {
+    grid-template-columns: 1fr !important;
+    padding: 10px !important;
+    font-size: 1rem !important;
+  }
+
+  .legend-item {
+    justify-content: center !important;
+    gap: 10px !important;
+  }
+
+  .dot {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  #lista-tappe {
+    padding: 8px !important;
+  }
+
+  #lista-title {
+    text-align: center !important;
+    margin-bottom: 8px !important;
+  }
+
+  .places-list {
+    gap: 10px !important;
+  }
+
+  .place-card,
+  .poi-card {
+    width: 100% !important;
+    padding: 10px !important;
+    border-radius: 14px !important;
+  }
+
+  .place-header {
+    grid-template-columns: auto 1fr !important;
+    gap: 8px !important;
+    align-items: start !important;
+  }
+
+  .number {
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    font-size: 1rem !important;
+  }
+
+  h1,
+  h2,
+  h3 {
+    word-break: break-word !important;
+  }
+
+  h2 {
+    font-size: 1.18rem !important;
+  }
+
+  h3 {
+    font-size: 1.08rem !important;
+  }
+
+  .place-meta,
+  .place-description {
+    font-size: .98rem !important;
+  }
+
+  .place-photo,
+  .poi-photo {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 190px !important;
+    object-fit: cover !important;
+  }
+
+  .card-image-space {
+    height: 90px !important;
+    font-size: .92rem !important;
+  }
+
+  .actions,
+  .poi-actions,
+  .form-actions,
+  .modal-actions {
+    grid-template-columns: 1fr !important;
+    gap: 9px !important;
+  }
+
+  .button-link,
+  .purple-button,
+  .back-button {
+    width: 100% !important;
+    min-height: 54px !important;
+    padding: 12px 10px !important;
+    font-size: 1rem !important;
+    border-radius: 14px !important;
+    line-height: 1.2 !important;
+  }
+
+  .personal-tools {
+    gap: 10px !important;
+  }
+
+  .add-place-panel {
+    padding: 10px !important;
+    border-radius: 14px !important;
+  }
+
+  .personal-form {
+    gap: 9px !important;
+  }
+
+  .personal-form label {
+    display: block !important;
+    margin-bottom: 4px !important;
+    font-size: 1rem !important;
+  }
+
+  .personal-form input,
+  .personal-form textarea {
+    min-height: 52px !important;
+    padding: 10px !important;
+    font-size: 16px !important;
+    border-radius: 12px !important;
+  }
+
+  .personal-form textarea {
+    min-height: 90px !important;
+  }
+
+  .leaflet-control-zoom a {
+    width: 42px !important;
+    height: 42px !important;
+    line-height: 42px !important;
+    font-size: 24px !important;
+  }
+
+  .leaflet-popup-content-wrapper {
+    border-radius: 14px !important;
+  }
+
+  .leaflet-popup-content {
+    width: 240px !important;
+    max-width: 72vw !important;
+    margin: 14px 10px !important;
+    font-size: .96rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .popup-title {
+    padding-right: 34px !important;
+  }
+
+  .popup-photo {
+    max-height: 115px !important;
+  }
+
+  .popup-image-space {
+    height: 80px !important;
+    font-size: .9rem !important;
+  }
+
+  .popup-actions {
+    gap: 7px !important;
+  }
+
+  .popup-actions a {
+    min-height: 46px !important;
+    padding: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1.15 !important;
+  }
+
+  .leaflet-popup-close-button {
+    width: 38px !important;
+    height: 38px !important;
+    line-height: 30px !important;
+    font-size: 24px !important;
+    right: 4px !important;
+    top: 4px !important;
+  }
+
+  .modal-overlay {
+    padding: 6px !important;
+    align-items: stretch !important;
+  }
+
+  .modal-window {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 96vh !important;
+    padding: 10px !important;
+    border-radius: 14px !important;
+    overflow-y: auto !important;
+  }
+
+  .modal-close {
+    width: 52px !important;
+    height: 52px !important;
+    font-size: 32px !important;
+  }
+
+  .modal-title {
+    text-align: center !important;
+    font-size: 1.22rem !important;
+    padding: 0 6px !important;
+  }
+
+  .modal-photo {
+    max-height: 220px !important;
+  }
+
+  .modal-text {
+    font-size: 1rem !important;
+  }
+
+  .info-useful-content {
+    gap: 10px !important;
+  }
+
+  .info-box {
+    padding: 10px !important;
+    border-radius: 14px !important;
+  }
+
+  .info-label,
+  .info-value {
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 380px) {
+  body {
+    font-size: 16px !important;
+  }
+
+  #map {
+    height: 56vh !important;
+    min-height: 300px !important;
+  }
+
+  .category-button {
+    min-height: 68px !important;
+    font-size: 1rem !important;
+  }
+
+  .button-link,
+  .purple-button,
+  .back-button {
+    font-size: .95rem !important;
+  }
+
+  .leaflet-popup-content {
+    width: 210px !important;
+    max-width: 70vw !important;
+  }
+}
+
+
+/* MIGLIORAMENTO AVANZATO SMARTPHONE */
+@media (max-width: 759px) {
+  body {
+    min-width: 320px !important;
+  }
+
+  main {
+    padding-left: max(8px, env(safe-area-inset-left)) !important;
+    padding-right: max(8px, env(safe-area-inset-right)) !important;
+    padding-bottom: max(12px, env(safe-area-inset-bottom)) !important;
+  }
+
+  .home-screen,
+  #appScreen {
+    width: 100% !important;
+  }
+
+  .category-grid {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 900 !important;
+    background: #ffffff !important;
+    padding: 6px 0 8px !important;
+  }
+
+  body.musei .category-grid,
+  body.edifici .category-grid,
+  body.locali .category-grid,
+  body.mia .category-grid {
+    position: static !important;
+  }
+
+  .category-button {
+    letter-spacing: .02em !important;
+  }
+
+  .section.map-card {
+    margin-top: 8px !important;
+  }
+
+  #map {
+    height: calc(100vh - 190px) !important;
+    min-height: 360px !important;
+    max-height: 620px !important;
+    border-radius: 0 0 12px 12px !important;
+  }
+
+  @supports (height: 100dvh) {
+    #map {
+      height: calc(100dvh - 190px) !important;
+    }
+  }
+
+  #homeCityMap {
+    height: 32vh !important;
+    min-height: 250px !important;
+    max-height: 360px !important;
+  }
+
+  .leaflet-container {
+    font-family: Arial, Helvetica, sans-serif !important;
+  }
+
+  .leaflet-control-container .leaflet-top,
+  .leaflet-control-container .leaflet-bottom {
+    z-index: 800 !important;
+  }
+
+  .leaflet-control-attribution {
+    font-size: 10px !important;
+    max-width: 78vw !important;
+    white-space: normal !important;
+  }
+
+  .marker {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 17px !important;
+    border-width: 3px !important;
+  }
+
+  .places-list {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .place-card {
+    contain: layout paint !important;
+  }
+
+  .place-header h3 {
+    margin-top: 2px !important;
+  }
+
+  .place-description {
+    margin: 8px 0 10px !important;
+  }
+
+  .button-link,
+  .purple-button,
+  .back-button,
+  .category-button {
+    -webkit-tap-highlight-color: rgba(0,0,0,.12) !important;
+  }
+
+  .button-link:active,
+  .purple-button:active,
+  .back-button:active,
+  .category-button:active {
+    transform: scale(.99) !important;
+  }
+
+  .poi-actions {
+    position: relative !important;
+  }
+
+  .button-link {
+    white-space: normal !important;
+    word-break: keep-all !important;
+  }
+
+  .personal-tools h2,
+  .add-place-panel h3 {
+    text-align: center !important;
+  }
+
+  .personal-form input[type="file"] {
+    padding-top: 13px !important;
+  }
+
+  .personal-form input,
+  .personal-form textarea {
+    max-width: 100% !important;
+  }
+
+  .modal-window {
+    margin: 0 !important;
+  }
+
+  .modal-close {
+    position: sticky !important;
+    top: 0 !important;
+    float: right !important;
+  }
+
+  .info-useful-window {
+    border-width: 4px !important;
+  }
+
+  .info-value a {
+    overflow-wrap: anywhere !important;
+  }
+
+  .popup-actions a.portami-qui,
+  .popup-actions a.popup-info,
+  .popup-actions a.popup-scheda {
+    border-radius: 10px !important;
+  }
+
+  .leaflet-popup {
+    margin-bottom: 18px !important;
+  }
+
+  .leaflet-popup-content {
+    overflow-wrap: anywhere !important;
+  }
+
+  .popup-title {
+    font-size: 1rem !important;
+    line-height: 1.2 !important;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  #map {
+    height: 78vh !important;
+    min-height: 260px !important;
+  }
+
+  .category-grid {
+    position: static !important;
+  }
+
+  .modal-window {
+    max-height: 94vh !important;
+  }
+
+  .modal-photo,
+  .popup-photo,
+  .card-image-space,
+  .popup-image-space {
+    display: none !important;
+  }
+}
+
+/* Correzione finale: pulsanti richiesti sempre coerenti anche su smartphone */
+a.portami-qui,
+.button-link.portami-qui,
+.poi-actions a.portami-qui,
+.popup-actions a.portami-qui {
+  background: #c40000 !important;
+  border-color: #c40000 !important;
+  color: #ffffff !important;
+}
+
+body.musei .button-link.scheda-luogo,
+body.musei .popup-actions a.popup-scheda {
+  background: var(--blue) !important;
+  border-color: var(--blue) !important;
+  color: #ffffff !important;
+}
+
+body.edifici .button-link.scheda-luogo,
+body.edifici .popup-actions a.popup-scheda {
+  background: var(--green) !important;
+  border-color: var(--green) !important;
+  color: #ffffff !important;
+}
+
+body.locali .button-link.scheda-luogo,
+body.locali .popup-actions a.popup-scheda {
+  background: var(--orange) !important;
+  border-color: var(--orange) !important;
+  color: #ffffff !important;
+}
+
+body.mia .button-link.scheda-luogo,
+body.mia .popup-actions a.popup-scheda {
+  background: var(--purple) !important;
+  border-color: var(--purple) !important;
+  color: #ffffff !important;
+}
+
+
+/* VERSIONE MOBILE PIÙ COMODA: STILE APP */
+@media (max-width: 759px) {
+  body {
+    background: #ffffff !important;
+  }
+
+  main {
+    padding-bottom: 104px !important;
+  }
+
+  /* categorie sempre raggiungibili in basso */
+  .category-grid {
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    top: auto !important;
+    z-index: 2500 !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 4px !important;
+    padding: 6px 6px max(6px, env(safe-area-inset-bottom)) !important;
+    background: #ffffff !important;
+    border-top: 2px solid var(--border) !important;
+    box-shadow: 0 -4px 18px rgba(0,0,0,.18) !important;
+  }
+
+  .category-button {
+    min-height: 64px !important;
+    padding: 6px 4px !important;
+    border-width: 3px !important;
+    border-radius: 14px !important;
+    font-size: .78rem !important;
+    line-height: 1.08 !important;
+  }
+
+  .category-button .small {
+    display: none !important;
+  }
+
+  /* quando si è dentro una sezione, la mappa resta protagonista */
+  body.musei #homeScreen,
+  body.edifici #homeScreen,
+  body.locali #homeScreen,
+  body.mia #homeScreen {
+    margin-bottom: 0 !important;
+  }
+
+  body.musei .home-city-map-card,
+  body.edifici .home-city-map-card,
+  body.locali .home-city-map-card,
+  body.mia .home-city-map-card {
+    display: none !important;
+  }
+
+  .map-card {
+    margin-top: 0 !important;
+  }
+
+  .map-title {
+    font-size: .95rem !important;
+    padding: 8px !important;
+  }
+
+  #map {
+    height: calc(100vh - 250px) !important;
+    min-height: 330px !important;
+    max-height: 560px !important;
+  }
+
+  @supports (height: 100dvh) {
+    #map {
+      height: calc(100dvh - 250px) !important;
+    }
+  }
+
+  #homeCityMap {
+    height: calc(100vh - 210px) !important;
+    min-height: 360px !important;
+    max-height: 560px !important;
+  }
+
+  @supports (height: 100dvh) {
+    #homeCityMap {
+      height: calc(100dvh - 210px) !important;
+    }
+  }
+
+  /* legenda più compatta */
+  .legend {
+    padding: 8px !important;
+  }
+
+  .legend-item {
+    font-size: .95rem !important;
+  }
+
+  /* lista tappe più leggibile e meno ingombrante */
+  #lista-tappe {
+    margin-bottom: 0 !important;
+  }
+
+  #lista-title {
+    font-size: 1.08rem !important;
+  }
+
+  .place-card {
+    padding: 9px !important;
+    border-width: 2px !important;
+  }
+
+  .place-header {
+    margin-bottom: 6px !important;
+  }
+
+  .place-description {
+    font-size: .96rem !important;
+  }
+
+  .card-image-space,
+  .popup-image-space {
+    display: none !important;
+  }
+
+  /* immagini più leggere sullo schermo piccolo */
+  .place-photo {
+    max-height: 150px !important;
+    margin: 6px 0 8px !important;
+  }
+
+  /* pulsanti grandi ma non troppo alti */
+  .button-link,
+  .purple-button,
+  .back-button {
+    min-height: 50px !important;
+    padding: 10px 8px !important;
+    font-size: .96rem !important;
+  }
+
+  /* form più ordinato */
+  .personal-tools {
+    padding: 10px !important;
+  }
+
+  .personal-tools h2 {
+    font-size: 1.12rem !important;
+    margin-bottom: 6px !important;
+  }
+
+  .add-place-panel h3 {
+    margin: 4px 0 10px !important;
+  }
+
+  .personal-form label {
+    font-size: .96rem !important;
+  }
+
+  .personal-form input,
+  .personal-form textarea {
+    font-size: 16px !important;
+    border-width: 2px !important;
+  }
+
+  /* popup più stabile su schermi piccoli */
+  .leaflet-popup-content {
+    width: min(250px, 74vw) !important;
+    max-width: 74vw !important;
+  }
+
+  .popup-photo {
+    display: none !important;
+  }
+
+  .popup-actions a {
+    min-height: 44px !important;
+    font-size: .94rem !important;
+  }
+
+  /* finestre modali stile app */
+  .modal-overlay {
+    align-items: flex-end !important;
+    padding: 0 !important;
+  }
+
+  .modal-window {
+    max-height: 88vh !important;
+    border-radius: 22px 22px 0 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-bottom: 0 !important;
+    padding: 12px !important;
+  }
+
+  .modal-close {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .modal-photo {
+    max-height: 180px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .category-button {
+    font-size: .72rem !important;
+    min-height: 60px !important;
+  }
+
+  #map {
+    min-height: 310px !important;
+  }
+
+  .number {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+  }
+
+  .place-meta {
+    font-size: .9rem !important;
+  }
+}
+
+@media (max-width: 340px) {
+  .category-button {
+    font-size: .66rem !important;
+    border-radius: 12px !important;
+  }
+
+  .button-link,
+  .purple-button {
+    font-size: .9rem !important;
+  }
+}
+
+
+/* TRASFORMAZIONE VISIVA TIPO APP MOBILE */
+@media (max-width: 759px) {
+  :root {
+    --app-bottom-nav-height: 78px;
+    --app-radius: 18px;
+  }
+
+  html,
+  body {
+    height: 100%;
+    overscroll-behavior-y: contain;
+    background: #ffffff !important;
+  }
+
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  main {
+    min-height: 100vh !important;
+    padding: 8px 8px calc(var(--app-bottom-nav-height) + 16px) 8px !important;
+    background: #ffffff !important;
+  }
+
+  @supports (height: 100dvh) {
+    main {
+      min-height: 100dvh !important;
+    }
+  }
+
+  /* Schermate stile app */
+  #homeScreen,
+  #appScreen {
+    animation: appFadeIn .18s ease-out;
+  }
+
+  @keyframes appFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .section {
+    border-radius: var(--app-radius) !important;
+    border-width: 1px !important;
+    box-shadow: 0 4px 18px rgba(0,0,0,.08) !important;
+  }
+
+  /* Header visivo interno, senza occupare troppo spazio */
+  .home-city-map-title,
+  .map-title {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 700 !important;
+    border-radius: var(--app-radius) var(--app-radius) 0 0 !important;
+    box-shadow: 0 3px 12px rgba(0,0,0,.14) !important;
+    letter-spacing: .03em !important;
+  }
+
+  .home-city-map-card,
+  .map-card {
+    border-radius: var(--app-radius) !important;
+    overflow: hidden !important;
+  }
+
+  #homeCityMap,
+  #map {
+    border-radius: 0 0 var(--app-radius) var(--app-radius) !important;
+  }
+
+  /* Mappa più app-like */
+  #map {
+    height: calc(100vh - 265px) !important;
+    min-height: 360px !important;
+  }
+
+  @supports (height: 100dvh) {
+    #map {
+      height: calc(100dvh - 265px) !important;
+    }
+  }
+
+  #homeCityMap {
+    height: calc(100vh - 175px) !important;
+    min-height: 420px !important;
+  }
+
+  @supports (height: 100dvh) {
+    #homeCityMap {
+      height: calc(100dvh - 175px) !important;
+    }
+  }
+
+  /* Navigazione inferiore come app */
+  .category-grid {
+    height: var(--app-bottom-nav-height) !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 5px !important;
+    padding: 7px 7px max(7px, env(safe-area-inset-bottom)) !important;
+    background: rgba(255,255,255,.96) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-top: 1px solid rgba(0,0,0,.12) !important;
+    box-shadow: 0 -6px 24px rgba(0,0,0,.18) !important;
+  }
+
+  .category-button {
+    min-height: 0 !important;
+    height: 58px !important;
+    border-radius: 16px !important;
+    border-width: 0 !important;
+    padding: 6px 3px !important;
+    font-size: .72rem !important;
+    line-height: 1.05 !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  .category-button::before {
+    display: block;
+    font-size: 1.25rem;
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+
+  .category-button[data-category="musei"]::before {
+    content: "▣";
+  }
+
+  .category-button[data-category="edifici"]::before {
+    content: "▤";
+  }
+
+  .category-button[data-category="locali"]::before {
+    content: "●";
+  }
+
+  .category-button[data-category="mia"]::before {
+    content: "★";
+  }
+
+  .category-button:active {
+    transform: scale(.96) !important;
+  }
+
+  /* Stato categoria attiva */
+  body.musei .category-button[data-category="musei"],
+  body.edifici .category-button[data-category="edifici"],
+  body.locali .category-button[data-category="locali"],
+  body.mia .category-button[data-category="mia"] {
+    outline: 3px solid #111111 !important;
+    outline-offset: -3px !important;
+  }
+
+  /* Pulsanti stile app */
+  .button-link,
+  .purple-button,
+  .back-button {
+    border-radius: 16px !important;
+    border-width: 0 !important;
+    box-shadow: 0 3px 12px rgba(0,0,0,.14) !important;
+    font-weight: 900 !important;
+  }
+
+  .button-link:active,
+  .purple-button:active,
+  .back-button:active {
+    transform: scale(.98) !important;
+  }
+
+  .poi-actions {
+    gap: 8px !important;
+  }
+
+  /* Schede luogo tipo card app */
+  .place-card {
+    border: 0 !important;
+    border-radius: 20px !important;
+    box-shadow: 0 5px 18px rgba(0,0,0,.10) !important;
+    overflow: hidden !important;
+  }
+
+  .place-header {
+    align-items: center !important;
+  }
+
+  .number,
+  .marker {
+    box-shadow: 0 3px 12px rgba(0,0,0,.25) !important;
+  }
+
+  .place-photo {
+    border-radius: 16px !important;
+    border: 0 !important;
+  }
+
+  /* Form stile app */
+  .personal-tools,
+  .add-place-panel {
+    border: 0 !important;
+    box-shadow: 0 5px 18px rgba(0,0,0,.10) !important;
+  }
+
+  .personal-form input,
+  .personal-form textarea {
+    border: 0 !important;
+    background: #f2f2f2 !important;
+    box-shadow: inset 0 0 0 2px transparent !important;
+  }
+
+  .personal-form input:focus,
+  .personal-form textarea:focus {
+    box-shadow: inset 0 0 0 3px var(--purple) !important;
+    outline: none !important;
+  }
+
+  /* Popup più simili a una mini-card */
+  .leaflet-popup-content-wrapper {
+    border-radius: 20px !important;
+    box-shadow: 0 8px 28px rgba(0,0,0,.28) !important;
+  }
+
+  .leaflet-popup-content {
+    margin: 14px 12px !important;
+  }
+
+  .leaflet-popup-tip {
+    display: none !important;
+  }
+
+  /* Modali tipo bottom sheet */
+  .modal-overlay {
+    background: rgba(0,0,0,.45) !important;
+  }
+
+  .modal-window {
+    animation: sheetUp .2s ease-out;
+    border-radius: 26px 26px 0 0 !important;
+    border-top-width: 5px !important;
+    box-shadow: 0 -8px 30px rgba(0,0,0,.25) !important;
+  }
+
+  @keyframes sheetUp {
+    from {
+      transform: translateY(30px);
+      opacity: .7;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .modal-window::before {
+    content: "";
+    display: block;
+    width: 54px;
+    height: 6px;
+    border-radius: 999px;
+    background: #c8c8c8;
+    margin: 0 auto 8px;
+  }
+
+  .modal-close {
+    box-shadow: 0 3px 12px rgba(0,0,0,.22) !important;
+  }
+
+  /* Nasconde elementi meno utili su smartphone */
+  .skip-link {
+    display: none !important;
+  }
+
+  .status:empty {
+    display: none !important;
+  }
+
+  /* Accessibilità touch */
+  a,
+  button {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 380px) {
+  .category-button {
+    height: 54px !important;
+    font-size: .64rem !important;
+  }
+
+  .category-button::before {
+    font-size: 1.08rem !important;
+  }
+
+  main {
+    padding-bottom: 96px !important;
+  }
+
+  #map {
+    min-height: 330px !important;
+  }
+
+  #homeCityMap {
+    min-height: 380px !important;
+  }
+}
+
+/* Colori obbligatori finali */
+a.portami-qui,
+.button-link.portami-qui,
+.poi-actions a.portami-qui,
+.popup-actions a.portami-qui {
+  background: #c40000 !important;
+  border-color: #c40000 !important;
+  color: #ffffff !important;
+}
+
+
+/* FIX PALLINO ROSSO TITOLO */
+.map-title .dot {
+  width: 22px !important;
+  height: 22px !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  margin-right: 6px !important;
+  border-radius: 50% !important;
+  background: #c40000 !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 0 0 2px #333 !important;
+}
+
+
+/* PALLINO ROSSO SOLO SOPRA LA MAPPA */
+.map-title .dot {
+  width: 22px !important;
+  height: 22px !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  margin-right: 6px !important;
+  border-radius: 50% !important;
+  background: #c40000 !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 0 0 2px #333333 !important;
+}
+
+
+/* ZOOM MAPPA CON MOUSE E DITA */
+#map,
+#homeCityMap,
+.leaflet-container {
+  touch-action: pan-x pan-y pinch-zoom !important;
+}
+
+.leaflet-container {
+  cursor: grab;
+}
+
+.leaflet-container:active {
+  cursor: grabbing;
+}
+
+
+/* TRASCINAMENTO MAPPA CON DITA SU SMARTPHONE */
+#map,
+#homeCityMap,
+.leaflet-container,
+.leaflet-pane,
+.leaflet-map-pane {
+  touch-action: none !important;
+  -ms-touch-action: none !important;
+}
+
+.leaflet-container {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+
+/* MIGLIORIE COMPLETE SMARTPHONE / WEB APP */
+.mobile-app-header {
+  display: none;
+}
+
+@media (max-width: 759px) {
+  :root {
+    --app-nav-h: 82px;
+    --app-header-h: 64px;
+    --app-gap: 8px;
+    --app-radius: 20px;
+  }
+
+  html,
+  body {
+    width: 100% !important;
+    min-width: 320px !important;
+    max-width: 100% !important;
+    min-height: 100% !important;
+    overflow-x: hidden !important;
+    background: #ffffff !important;
+    overscroll-behavior-y: contain !important;
+    -webkit-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+  }
+
+  body {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .mobile-app-header {
+    display: block !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 2600 !important;
+    padding: max(8px, env(safe-area-inset-top)) 12px 8px !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid rgba(0,0,0,.12) !important;
+    box-shadow: 0 4px 18px rgba(0,0,0,.10) !important;
+  }
+
+  .mobile-app-title {
+    font-size: .98rem !important;
+    font-weight: 900 !important;
+    text-align: center !important;
+    letter-spacing: .06em !important;
+    color: #111111 !important;
+  }
+
+  .mobile-app-subtitle {
+    margin-top: 2px !important;
+    font-size: .78rem !important;
+    font-weight: 900 !important;
+    text-align: center !important;
+    color: #263238 !important;
+  }
+
+  body.musei .mobile-app-header {
+    border-bottom: 4px solid var(--blue) !important;
+  }
+
+  body.edifici .mobile-app-header {
+    border-bottom: 4px solid var(--green) !important;
+  }
+
+  body.locali .mobile-app-header {
+    border-bottom: 4px solid var(--orange) !important;
+  }
+
+  body.mia .mobile-app-header {
+    border-bottom: 4px solid var(--purple) !important;
+  }
+
+  main {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 8px 8px calc(var(--app-nav-h) + max(18px, env(safe-area-inset-bottom))) !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+  }
+
+  .section {
+    width: 100% !important;
+    margin: 0 0 10px !important;
+    padding: 10px !important;
+    border-radius: var(--app-radius) !important;
+    border: 1px solid #d8e1ec !important;
+    background: #ffffff !important;
+    box-shadow: 0 5px 18px rgba(0,0,0,.09) !important;
+  }
+
+  #homeScreen,
+  #appScreen {
+    width: 100% !important;
+    animation: appEnter .18s ease-out !important;
+  }
+
+  @keyframes appEnter {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* NAV INFERIORE TIPO APP */
+  .category-grid {
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    top: auto !important;
+    z-index: 3000 !important;
+    height: var(--app-nav-h) !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 5px !important;
+    padding: 7px 7px max(7px, env(safe-area-inset-bottom)) !important;
+    background: rgba(255,255,255,.97) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-top: 1px solid rgba(0,0,0,.12) !important;
+    box-shadow: 0 -7px 24px rgba(0,0,0,.18) !important;
+  }
+
+  .category-button {
+    height: 58px !important;
+    min-height: 58px !important;
+    width: 100% !important;
+    padding: 5px 3px !important;
+    border: 0 !important;
+    border-radius: 16px !important;
+    font-size: .72rem !important;
+    line-height: 1.05 !important;
+    letter-spacing: .02em !important;
+    box-shadow: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 2px !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  .category-button .small {
+    display: none !important;
+  }
+
+  .category-button::before {
+    display: block !important;
+    font-size: 1.2rem !important;
+    line-height: 1 !important;
+    margin-bottom: 3px !important;
+  }
+
+  .category-button[data-category="musei"]::before { content: "▣"; }
+  .category-button[data-category="edifici"]::before { content: "▤"; }
+  .category-button[data-category="locali"]::before { content: "●"; }
+  .category-button[data-category="mia"]::before { content: "★"; }
+
+  body.musei .category-button[data-category="musei"],
+  body.edifici .category-button[data-category="edifici"],
+  body.locali .category-button[data-category="locali"],
+  body.mia .category-button[data-category="mia"] {
+    outline: 3px solid #111111 !important;
+    outline-offset: -3px !important;
+  }
+
+  button:active,
+  a:active {
+    transform: scale(.98) !important;
+  }
+
+  /* MAPPE */
+  .home-city-map-card,
+  .map-card {
+    padding: 0 !important;
+    overflow: hidden !important;
+    border-radius: var(--app-radius) !important;
+  }
+
+  .home-city-map-title,
+  .map-title {
+    position: relative !important;
+    top: auto !important;
+    z-index: 1 !important;
+    padding: 9px !important;
+    font-size: .98rem !important;
+    text-align: center !important;
+    letter-spacing: .04em !important;
+    border-radius: var(--app-radius) var(--app-radius) 0 0 !important;
+  }
+
+  .map-title .dot {
+    width: 22px !important;
+    height: 22px !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    margin-right: 7px !important;
+    border-radius: 50% !important;
+    background: #c40000 !important;
+    border: 2px solid #ffffff !important;
+    box-shadow: 0 0 0 2px #333333 !important;
+  }
+
+  #homeCityMap {
+    height: calc(100vh - 175px) !important;
+    min-height: 390px !important;
+    max-height: 640px !important;
+  }
+
+  #map {
+    height: calc(100vh - 285px) !important;
+    min-height: 350px !important;
+    max-height: 620px !important;
+  }
+
+  @supports (height: 100dvh) {
+    #homeCityMap { height: calc(100dvh - 175px) !important; }
+    #map { height: calc(100dvh - 285px) !important; }
+  }
+
+  #map,
+  #homeCityMap,
+  .leaflet-container,
+  .leaflet-pane,
+  .leaflet-map-pane {
+    touch-action: none !important;
+    -ms-touch-action: none !important;
+  }
+
+  .leaflet-control-zoom a {
+    width: 44px !important;
+    height: 44px !important;
+    line-height: 44px !important;
+    font-size: 25px !important;
+  }
+
+  .leaflet-control-attribution {
+    max-width: 76vw !important;
+    white-space: normal !important;
+    font-size: 10px !important;
+  }
+
+  .map-note,
+  .legend {
+    display: none !important;
+  }
+
+  /* LISTA TAPPE */
+  #lista-tappe {
+    padding: 10px !important;
+  }
+
+  #lista-title {
+    text-align: center !important;
+    font-size: 1.12rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .status,
+  .status:empty {
+    display: none !important;
+  }
+
+  .places-list {
+    gap: 10px !important;
+  }
+
+  .place-card,
+  .poi-card {
+    width: 100% !important;
+    padding: 10px !important;
+    border: 0 !important;
+    border-radius: 20px !important;
+    background: #ffffff !important;
+    box-shadow: 0 5px 18px rgba(0,0,0,.10) !important;
+    overflow: hidden !important;
+  }
+
+  .place-header {
+    grid-template-columns: auto 1fr !important;
+    gap: 9px !important;
+    align-items: center !important;
+    margin-bottom: 7px !important;
+  }
+
+  .number {
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    font-size: 1rem !important;
+  }
+
+  h1, h2, h3 {
+    word-break: break-word !important;
+  }
+
+  h3 {
+    font-size: 1.08rem !important;
+  }
+
+  .place-meta,
+  .place-description {
+    font-size: .98rem !important;
+    line-height: 1.32 !important;
+  }
+
+  .place-photo {
+    width: 100% !important;
+    max-height: 155px !important;
+    object-fit: cover !important;
+    border: 0 !important;
+    border-radius: 16px !important;
+    margin: 6px 0 8px !important;
+  }
+
+  .card-image-space,
+  .popup-image-space {
+    display: none !important;
+  }
+
+  .actions,
+  .poi-actions,
+  .form-actions,
+  .modal-actions {
+    grid-template-columns: 1fr !important;
+    gap: 9px !important;
+  }
+
+  .button-link,
+  .purple-button,
+  .back-button {
+    width: 100% !important;
+    min-height: 52px !important;
+    padding: 11px 10px !important;
+    border: 0 !important;
+    border-radius: 16px !important;
+    font-size: .98rem !important;
+    line-height: 1.15 !important;
+    box-shadow: 0 3px 12px rgba(0,0,0,.14) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* FORM LA MIA MAPPA */
+  .personal-tools,
+  .add-place-panel {
+    border: 0 !important;
+    border-radius: 20px !important;
+    box-shadow: 0 5px 18px rgba(0,0,0,.10) !important;
+  }
+
+  .personal-tools h2,
+  .add-place-panel h3 {
+    text-align: center !important;
+  }
+
+  .personal-form {
+    gap: 10px !important;
+  }
+
+  .personal-form label {
+    display: block !important;
+    margin-bottom: 5px !important;
+    font-size: .98rem !important;
+  }
+
+  .personal-form input,
+  .personal-form textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 52px !important;
+    padding: 11px !important;
+    border: 0 !important;
+    border-radius: 14px !important;
+    background: #f2f2f2 !important;
+    font-size: 16px !important;
+    box-shadow: inset 0 0 0 2px transparent !important;
+  }
+
+  .personal-form textarea {
+    min-height: 94px !important;
+  }
+
+  .personal-form input:focus,
+  .personal-form textarea:focus {
+    outline: none !important;
+    box-shadow: inset 0 0 0 3px var(--purple) !important;
+  }
+
+  /* POPUP MAPPA */
+  .leaflet-popup-content-wrapper {
+    border-radius: 20px !important;
+    box-shadow: 0 8px 28px rgba(0,0,0,.28) !important;
+  }
+
+  .leaflet-popup-tip {
+    display: none !important;
+  }
+
+  .leaflet-popup-content {
+    width: min(260px, 76vw) !important;
+    max-width: 76vw !important;
+    margin: 14px 12px !important;
+    font-size: .96rem !important;
+    line-height: 1.28 !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .popup-title {
+    padding-right: 34px !important;
+    font-size: 1rem !important;
+  }
+
+  .popup-photo {
+    display: none !important;
+  }
+
+  .popup-actions a {
+    min-height: 46px !important;
+    padding: 10px !important;
+    border-radius: 12px !important;
+    font-size: .94rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .leaflet-popup-close-button {
+    width: 38px !important;
+    height: 38px !important;
+    line-height: 30px !important;
+    right: 5px !important;
+    top: 5px !important;
+  }
+
+  /* MODALI TIPO APP */
+  .modal-overlay {
+    padding: 0 !important;
+    align-items: flex-end !important;
+    background: rgba(0,0,0,.45) !important;
+  }
+
+  .modal-window {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 88vh !important;
+    margin: 0 !important;
+    padding: 12px !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-bottom: 0 !important;
+    border-radius: 26px 26px 0 0 !important;
+    box-shadow: 0 -8px 30px rgba(0,0,0,.25) !important;
+    overflow-y: auto !important;
+    animation: sheetUp .2s ease-out !important;
+  }
+
+  @keyframes sheetUp {
+    from { transform: translateY(32px); opacity: .72; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .modal-window::before {
+    content: "" !important;
+    display: block !important;
+    width: 54px !important;
+    height: 6px !important;
+    border-radius: 999px !important;
+    background: #c8c8c8 !important;
+    margin: 0 auto 8px !important;
+  }
+
+  .modal-close {
+    width: 52px !important;
+    height: 52px !important;
+    font-size: 32px !important;
+    position: sticky !important;
+    top: 0 !important;
+    margin-left: auto !important;
+    box-shadow: 0 3px 12px rgba(0,0,0,.22) !important;
+  }
+
+  .modal-title {
+    text-align: center !important;
+    font-size: 1.2rem !important;
+  }
+
+  .modal-photo {
+    max-height: 190px !important;
+    border: 0 !important;
+    border-radius: 16px !important;
+  }
+
+  .info-box {
+    border: 0 !important;
+    border-radius: 16px !important;
+    background: #f6f6f6 !important;
+    padding: 12px !important;
+  }
+
+  .info-value a {
+    overflow-wrap: anywhere !important;
+  }
+
+  .skip-link {
+    display: none !important;
+  }
+
+  a,
+  button {
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  #map {
+    height: 76vh !important;
+    min-height: 260px !important;
+  }
+
+  #homeCityMap {
+    height: 74vh !important;
+    min-height: 260px !important;
+  }
+
+  .place-photo,
+  .modal-photo {
+    display: none !important;
+  }
+
+  .modal-window {
+    max-height: 94vh !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .category-button {
+    height: 54px !important;
+    min-height: 54px !important;
+    font-size: .64rem !important;
+  }
+
+  .category-button::before {
+    font-size: 1.05rem !important;
+  }
+
+  #map {
+    min-height: 320px !important;
+  }
+
+  #homeCityMap {
+    min-height: 350px !important;
+  }
+
+  .button-link,
+  .purple-button,
+  .back-button {
+    font-size: .92rem !important;
+  }
+}
+
+/* COLORI OBBLIGATORI FINALI */
+a.portami-qui,
+.button-link.portami-qui,
+.poi-actions a.portami-qui,
+.popup-actions a.portami-qui {
+  background: #c40000 !important;
+  border-color: #c40000 !important;
+  color: #ffffff !important;
+}
+
+body.musei .button-link.scheda-luogo,
+body.musei .popup-actions a.popup-scheda {
+  background: var(--blue) !important;
+  border-color: var(--blue) !important;
+  color: #ffffff !important;
+}
+
+body.edifici .button-link.scheda-luogo,
+body.edifici .popup-actions a.popup-scheda {
+  background: var(--green) !important;
+  border-color: var(--green) !important;
+  color: #ffffff !important;
+}
+
+body.locali .button-link.scheda-luogo,
+body.locali .popup-actions a.popup-scheda {
+  background: var(--orange) !important;
+  border-color: var(--orange) !important;
+  color: #ffffff !important;
+}
+
+body.mia .button-link.scheda-luogo,
+body.mia .popup-actions a.popup-scheda {
+  background: var(--purple) !important;
+  border-color: var(--purple) !important;
+  color: #ffffff !important;
+}
+
 </style>
 </head>
 
 <body>
   <a href="#lista-tappe" class="skip-link">Vai alla lista delle tappe</a>
 
+  <div id="mobileAppHeader" class="mobile-app-header" aria-hidden="true">
+    <div class="mobile-app-title">MAPPA ACCESSIBILE</div>
+    <div id="mobileAppSubtitle" class="mobile-app-subtitle">SCEGLI UNA SEZIONE</div>
+  </div>
+
   <main>
     <section id="homeScreen" class="section home-screen">
 <div class="category-grid">
-        <button class="category-button" type="button" data-category="musei">
+        <button class="category-button" type="button" data-category="musei" aria-label="Apri musei">
           Musei
           <span class="small">Luoghi da visitare</span>
         </button>
 
-        <button class="category-button" type="button" data-category="edifici">
+        <button class="category-button" type="button" data-category="edifici" aria-label="Apri edifici pubblici">
           Edifici pubblici
           <span class="small">Servizi e uffici</span>
         </button>
 
-        <button class="category-button" type="button" data-category="locali">
+        <button class="category-button" type="button" data-category="locali" aria-label="Apri locali pubblici accessibili">
           Locali pubblici accessibili
           <span class="small">Bar, ristoranti e altri luoghi</span>
         </button>
 
-        <button class="category-button" type="button" data-category="mia">
+        <button class="category-button" type="button" data-category="mia" aria-label="Apri la mia mappa">
           La mia mappa
           <span class="small">Luoghi preferiti e percorso personale</span>
         </button>
@@ -1682,7 +3515,7 @@ a.portami-qui,
         <button id="showAddPlace" class="purple-button" type="button">Aggiungi luogo</button>
 
         <div id="addPlacePanel" class="add-place-panel">
-          <h3>Aggiungi un nuovo luogo</h3>
+          <h3 style="text-align:center;">LA MIA MAPPA</h3>
           <form id="personalPlaceForm" class="personal-form">
             <div>
               <label for="personalName">Nome del luogo</label>
@@ -1699,20 +3532,11 @@ a.portami-qui,
               <textarea id="personalDescription" required></textarea>
             </div>
 
-            <div>
-              <label for="personalOrari">ORARI</label>
-              <textarea id="personalOrari" placeholder="ESEMPIO: DAL LUNEDÌ AL VENERDÌ, 9:00 - 12:00"></textarea>
-            </div>
+            
 
-            <div>
-              <label for="personalContatti">CONTATTI</label>
-              <textarea id="personalContatti" placeholder="ESEMPIO: TELEFONO, EMAIL O REFERENTE"></textarea>
-            </div>
+            
 
-            <div>
-              <label for="personalSito">SITO INTERNET</label>
-              <input id="personalSito" type="text" placeholder="ESEMPIO: WWW.SITO.IT">
-            </div>
+            
 
             
 
@@ -1748,16 +3572,10 @@ a.portami-qui,
       </div>
 
       <section class="section map-card" aria-labelledby="mappa-title">
-      <div class="map-title" id="mappa-title">Mappa del percorso scelto</div>
+      <div class="map-title" id="mappa-title"><span class="dot dot-blue"></span> CLICCA QUI</div>
       <div id="map" aria-label="Mappa visiva del percorso scelto con tappe numerate"></div>
-      <p class="map-note">
-        Clicca qui sulla <span class="dot dot-blue"></span> Tappa del percorso
-      </p>
-      <div class="legend" aria-label="Legenda della mappa">
-        <div class="legend-item"><span class="dot dot-blue"></span> Tappa del percorso</div>
-
-      </div>
-    </section>
+      
+      </section>
 
     <section class="section" id="lista-tappe" aria-labelledby="lista-title">
       <h2 id="lista-title">Tappe del percorso</h2>
@@ -1829,8 +3647,8 @@ a.portami-qui,
     const tappe = {
       palazzo: {
         nome: "Palazzo Comunale",
-        lat: 45.0703,
-        lng: 7.6869,
+        lat: 44.69795,
+        lng: 7.85535,
         indirizzo: "Piazza centrale",
         descrizione: "Ingresso senza gradini sul lato destro.",
         pagina: "luoghi/palazzo-comunale.html",
@@ -1853,8 +3671,8 @@ a.portami-qui,
       },
       museo: {
         nome: "Museo Civico",
-        lat: 45.0720,
-        lng: 7.6900,
+        lat: 44.6991,
+        lng: 7.85815,
         indirizzo: "Via Roma 10",
         descrizione: "Ingresso accessibile e ascensore interno.",
         pagina: "luoghi/museo-civico.html",
@@ -1877,8 +3695,8 @@ a.portami-qui,
       },
       biblioteca: {
         nome: "Biblioteca Civica",
-        lat: 45.0711,
-        lng: 7.6827,
+        lat: 44.69685,
+        lng: 7.8537,
         indirizzo: "Via della Biblioteca 3",
         descrizione: "Ingresso piano e ambiente tranquillo.",
         pagina: "luoghi/biblioteca-civica.html",
@@ -1901,8 +3719,8 @@ a.portami-qui,
       },
       giardino: {
         nome: "Giardino Storico",
-        lat: 45.0688,
-        lng: 7.6848,
+        lat: 44.69595,
+        lng: 7.85635,
         indirizzo: "Viale del Giardino",
         descrizione: "Percorso largo con panchine.",
         pagina: "luoghi/giardino-storico.html",
@@ -1925,8 +3743,8 @@ a.portami-qui,
       },
       teatro: {
         nome: "Teatro Civico",
-        lat: 45.0678,
-        lng: 7.6891,
+        lat: 44.69855,
+        lng: 7.85235,
         indirizzo: "Corso Teatro 8",
         descrizione: "Accesso laterale consigliato.",
         pagina: "luoghi/teatro-civico.html",
@@ -2008,6 +3826,47 @@ a.portami-qui,
     let homeCityMap;
     let markers = [];
     let routeLine = null;
+
+
+    function updateMobileAppUI(categoryKey) {
+      const subtitle = document.getElementById("mobileAppSubtitle");
+      const meta = document.querySelector('meta[name="theme-color"]');
+      const labels = {
+        musei: "MUSEI",
+        edifici: "EDIFICI PUBBLICI",
+        locali: "LOCALI ACCESSIBILI",
+        mia: "LA MIA MAPPA"
+      };
+      const colors = {
+        musei: "#1565c0",
+        edifici: "#2e7d32",
+        locali: "#ef6c00",
+        mia: "#7b1fa2"
+      };
+
+      if (subtitle) subtitle.textContent = labels[categoryKey] || "SCEGLI UNA SEZIONE";
+      if (meta) meta.setAttribute("content", colors[categoryKey] || "#1565c0");
+    }
+
+    function forceMobileMapRefresh() {
+      setTimeout(function() {
+        if (map) {
+          map.invalidateSize();
+          map.dragging.enable();
+          map.touchZoom.enable();
+          map.doubleClickZoom.enable();
+          map.scrollWheelZoom.enable();
+        }
+
+        if (homeCityMap) {
+          homeCityMap.invalidateSize();
+          homeCityMap.dragging.enable();
+          homeCityMap.touchZoom.enable();
+          homeCityMap.doubleClickZoom.enable();
+          homeCityMap.scrollWheelZoom.enable();
+        }
+      }, 160);
+    }
 
     function googleMapsLink(tappa, mode) {
       return `https://www.google.com/maps/dir/?api=1&destination=${tappa.lat},${tappa.lng}&travelmode=${mode}&dir_action=navigate`;
@@ -2209,6 +4068,8 @@ a.portami-qui,
         map.fitBounds(group.getBounds().pad(0.22));
       }
 
+      /* CENTRO FISSO BRA */
+      map.setView([44.6978, 7.8554], 15);
       setTimeout(() => map.invalidateSize(), 200);
     }
 
@@ -2219,7 +4080,7 @@ a.portami-qui,
       const stops = getCurrentStops();
 
       if (routeInfo) routeInfo.textContent = `${category.nome}: ${category.descrizione}`;
-      statusMessage.textContent = currentCategory === "mia" && stops.length === 0 ? "Non hai ancora aggiunto luoghi." : `Sono mostrate ${stops.length} tappe.`;
+      statusMessage.textContent = currentCategory === "mia" && stops.length === 0 ? "Non hai ancora aggiunto luoghi." : ``;
       placesList.innerHTML = "";
 
       stops.forEach((tappa, index) => {
@@ -2279,8 +4140,12 @@ a.portami-qui,
     function initHomeCityMap() {
       homeCityMap = L.map("homeCityMap", {
         zoomControl: true,
-        scrollWheelZoom: false,
+        scrollWheelZoom: true,
         dragging: true,
+        touchZoom: true,
+        doubleClickZoom: true,
+        boxZoom: true,
+        keyboard: true,
         tap: true
       }).setView([44.6978, 7.8554], 15);
 
@@ -2295,9 +4160,14 @@ a.portami-qui,
     function initMap() {
       map = L.map("map", {
         zoomControl: true,
-        scrollWheelZoom: false,
+        scrollWheelZoom: true,
+        dragging: true,
+        touchZoom: true,
+        doubleClickZoom: true,
+        boxZoom: true,
+        keyboard: true,
         tap: true
-      }).setView([45.0703, 7.6869], 15);
+      }).setView([44.6978, 7.8554], 15);
 
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,
@@ -2311,12 +4181,27 @@ a.portami-qui,
       }
     }
 
+
+    function updateThemeColor(categoryKey) {
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (!meta) return;
+      const colors = {
+        musei: "#1565c0",
+        edifici: "#2e7d32",
+        locali: "#ef6c00",
+        mia: "#7b1fa2"
+      };
+      meta.setAttribute("content", colors[categoryKey] || "#1565c0");
+    }
+
     function openCategory(categoryKey) {
       currentCategory = categoryKey;
       const category = categorie[currentCategory];
 
       document.body.classList.remove("musei", "edifici", "locali", "mia");
       document.body.classList.add(categoryKey);
+      updateMobileAppUI(categoryKey);
+      updateThemeColor(categoryKey);
 
       appScreen.classList.remove("musei", "edifici", "locali", "mia");
       appScreen.classList.add(categoryKey);
@@ -2328,6 +4213,7 @@ a.portami-qui,
       appScreen.classList.add("open");
 
       renderAll();
+      forceMobileMapRefresh();
 
       setTimeout(() => {
         map.invalidateSize();
@@ -2347,6 +4233,7 @@ a.portami-qui,
       statusMessage.textContent = "";
 
       document.body.classList.remove("musei", "edifici", "locali", "mia");
+      updateMobileAppUI(null);
       appScreen.classList.remove("musei", "edifici", "locali", "mia");
 
       appScreen.classList.remove("open");
@@ -2467,6 +4354,34 @@ a.portami-qui,
 
     if (routeSelect) routeSelect.addEventListener("change", renderAll);
 
+
+
+    function enableMapTouchDrag() {
+      if (map) {
+        map.dragging.enable();
+        map.touchZoom.enable();
+        map.doubleClickZoom.enable();
+        map.scrollWheelZoom.enable();
+      }
+
+      if (homeCityMap) {
+        homeCityMap.dragging.enable();
+        homeCityMap.touchZoom.enable();
+        homeCityMap.doubleClickZoom.enable();
+        homeCityMap.scrollWheelZoom.enable();
+      }
+    }
+
+    function refreshMapsForMobile() {
+      setTimeout(function() {
+        if (map) map.invalidateSize();
+        if (homeCityMap) homeCityMap.invalidateSize();
+      }, 120);
+    }
+
+    window.addEventListener("pageshow", refreshMapsForMobile);
+    window.addEventListener("focus", refreshMapsForMobile);
+
     window.addEventListener("resize", function() {
       if (map) {
         setTimeout(() => map.invalidateSize(), 250);
@@ -2482,6 +4397,10 @@ a.portami-qui,
     window.addEventListener("load", function() {
       initHomeCityMap();
       initMap();
+      enableMapTouchDrag();
+      updateMobileAppUI(null);
+      forceMobileMapRefresh();
+      setTimeout(enableMapTouchDrag, 300);
     });
   </script>
 </body>
