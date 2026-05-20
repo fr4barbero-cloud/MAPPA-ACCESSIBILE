@@ -3516,6 +3516,35 @@ body.mappa-attiva .leaflet-container {
   color: #c40000 !important;
 }
 
+
+/* AIUTO CAMPO INDIRIZZO */
+.address-help {
+  margin-top: 6px;
+  font-size: .9rem;
+  font-weight: 800;
+  color: var(--muted);
+  line-height: 1.25;
+}
+
+
+/* PULSANTI LUOGHI PERSONALIZZATI */
+.button-link.info,
+.popup-actions a.popup-info,
+.popup-actions a.open-note {
+  background: var(--yellow) !important;
+  border-color: var(--yellow) !important;
+  color: #111111 !important;
+}
+
+.button-link.delete-place,
+.popup-actions a.popup-delete,
+.popup-actions a.delete-place {
+  background: #ffffff !important;
+  border: 3px solid #c40000 !important;
+  color: #c40000 !important;
+  font-weight: 900 !important;
+}
+
 </style>
 </head>
 
@@ -3578,8 +3607,9 @@ body.mappa-attiva .leaflet-container {
             </div>
 
             <div>
-              <label for="personalAddress">Indirizzo</label>
-              <input id="personalAddress" type="text" required>
+              <label for="personalAddress">INDIRIZZO COMPLETO</label>
+              <input id="personalAddress" type="text" required placeholder="ESEMPIO: VIA ROMA 10, BRA">
+              <div class="address-help">SCRIVI VIA, NUMERO CIVICO E CITTÀ. ESEMPIO: VIA ROMA 10, BRA.</div>
             </div>
 
             <div>
@@ -3680,6 +3710,15 @@ body.mappa-attiva .leaflet-container {
     </div>
   </div>
 
+
+
+  <div id="noteModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="noteTitle">
+    <div class="modal-window">
+      <button id="noteClose" class="modal-close" type="button" aria-label="Chiudi note">×</button>
+      <h2 id="noteTitle" class="modal-title">NOTE</h2>
+      <p id="noteText" class="modal-text"></p>
+    </div>
+  </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
@@ -4071,6 +4110,33 @@ body.mappa-attiva .leaflet-container {
       });
     }
 
+
+    async function trovaCoordinateDaIndirizzo(indirizzo) {
+      const query = indirizzo.toUpperCase().includes("BRA") ? indirizzo : indirizzo + ", Bra, CN, Italia";
+      const url = "https://nominatim.openstreetmap.org/search?format=json&limit=1&q=" + encodeURIComponent(query);
+
+      try {
+        const response = await fetch(url, {
+          headers: {
+            "Accept": "application/json"
+          }
+        });
+
+        const data = await response.json();
+
+        if (data && data.length > 0) {
+          return {
+            lat: Number(data[0].lat),
+            lng: Number(data[0].lon)
+          };
+        }
+      } catch (error) {
+        return null;
+      }
+
+      return null;
+    }
+
     function loadPersonalPlaces() {
       try {
         return JSON.parse(localStorage.getItem("laMiaMappaLuoghi")) || [];
@@ -4097,13 +4163,30 @@ body.mappa-attiva .leaflet-container {
       });
     }
 
+
+    function aggiornaIndirizziSalvati() {
+      const places = loadPersonalPlaces();
+      let changed = false;
+
+      places.forEach(function(place) {
+        if (place.indirizzo && !place.indirizzoSalvato) {
+          place.indirizzoSalvato = place.indirizzo;
+          changed = true;
+        }
+      });
+
+      if (changed) {
+        savePersonalPlaces(places);
+      }
+    }
+
     function getPersonalStops() {
       return loadPersonalPlaces().map((place, index) => ({
         id: place.id,
         nome: place.nome,
         lat: Number(place.lat),
         lng: Number(place.lng),
-        indirizzo: place.indirizzo,
+        indirizzo: place.indirizzoSalvato || place.indirizzo || "NESSUN INDIRIZZO INSERITO.",
         descrizione: place.descrizione,
         pagina: "",
         foto: place.foto || "",
@@ -4173,8 +4256,8 @@ body.mappa-attiva .leaflet-container {
 
           <div class="popup-actions">
             <a class="portami-qui" style="background:#c40000 !important; border-color:#c40000 !important; color:#ffffff !important;" href="${googleMapsLink(tappa, "walking")}" target="_blank" rel="noopener">Portami qui</a>
-            <a href="#" class="popup-info open-info-utili" data-index="${index}">Info utili</a>
-            ${tappa.isPersonal ? "" : `<a href="#" class="popup-scheda open-scheda" data-index="${index}">Scheda del luogo</a>`}
+            ${tappa.isPersonal ? `<a href="#" class="popup-info open-note" data-index="${index}">NOTE</a>` : `<a href="#" class="popup-info open-info-utili" data-index="${index}">Info utili</a>`}
+            ${tappa.isPersonal ? `<a href="#" class="popup-delete delete-place" data-delete-index="${tappa.personalIndex}">ELIMINA LUOGO</a>` : `<a href="#" class="popup-scheda open-scheda" data-index="${index}">Scheda del luogo</a>`}
           </div>
         `);
 
@@ -4226,15 +4309,16 @@ body.mappa-attiva .leaflet-container {
             <a class="button-link portami-qui" style="background:#c40000 !important; border-color:#c40000 !important; color:#ffffff !important;" href="${googleMapsLink(tappa, "walking")}" target="_blank" rel="noopener">
               Portami qui
             </a>
-            <a class="button-link info open-info-utili" href="#" data-index="${index}">
+            ${tappa.isPersonal ? `<a class="button-link info open-note" href="#" data-index="${index}">
+              NOTE
+            </a>` : `<a class="button-link info open-info-utili" href="#" data-index="${index}">
               Info utili
-            </a>
-            ${tappa.isPersonal ? "" : `<a class="button-link scheda-luogo open-scheda" href="#" data-index="${index}">
-              Scheda del luogo
             </a>`}
             ${tappa.isPersonal ? `<a class="button-link delete-place" href="#" data-delete-index="${tappa.personalIndex}">
-              Elimina luogo
-            </a>` : ""}
+              ELIMINA LUOGO
+            </a>` : `<a class="button-link scheda-luogo open-scheda" href="#" data-index="${index}">
+              Scheda del luogo
+            </a>`}
           </div>
         `;
 
@@ -4392,12 +4476,29 @@ body.mappa-attiva .leaflet-container {
 
       const imageFile = personalImage.files && personalImage.files[0] ? personalImage.files[0] : null;
       const imageData = await fileToDataUrl(imageFile);
+      const indirizzoCompleto = personalAddress.value.trim();
+
+      if (indirizzoCompleto === "") {
+        alert("INSERISCI UN INDIRIZZO. ESEMPIO: VIA ROMA 10, BRA.");
+        personalAddress.focus();
+        return;
+      }
+
+      const coordinate = await trovaCoordinateDaIndirizzo(indirizzoCompleto);
+
+      if (!coordinate) {
+        alert("INDIRIZZO NON TROVATO. SCRIVI VIA, NUMERO CIVICO E CITTÀ. ESEMPIO: VIA ROMA 10, BRA.");
+        return;
+      }
 
       const places = loadPersonalPlaces();
       places.push({
         id: Date.now(),
         nome: personalName.value.trim(),
-        indirizzo: personalAddress.value.trim(),
+        indirizzo: indirizzoCompleto,
+        indirizzoSalvato: indirizzoCompleto,
+        lat: coordinate.lat,
+        lng: coordinate.lng,
         descrizione: personalDescription.value.trim(),
         
         
@@ -4418,6 +4519,47 @@ body.mappa-attiva .leaflet-container {
       deletePersonalPlace(Number(deleteButton.dataset.deleteIndex));
     });
 
+
+
+    const noteModal = document.getElementById("noteModal");
+    const noteClose = document.getElementById("noteClose");
+    const noteTitle = document.getElementById("noteTitle");
+    const noteText = document.getElementById("noteText");
+
+    function openNote(index) {
+      const stops = getCurrentStops();
+      const tappa = stops[index];
+      if (!tappa) return;
+
+      noteTitle.textContent = "NOTE - " + tappa.nome;
+      noteText.textContent = tappa.descrizione || "NESSUNA NOTA INSERITA.";
+      noteModal.classList.add("open");
+      noteClose.focus();
+    }
+
+    function closeNote() {
+      noteModal.classList.remove("open");
+    }
+
+    if (noteClose) {
+      noteClose.addEventListener("click", closeNote);
+    }
+
+    if (noteModal) {
+      noteModal.addEventListener("click", function(event) {
+        if (event.target === noteModal) {
+          closeNote();
+        }
+      });
+    }
+
+    document.addEventListener("click", function(event) {
+      const link = event.target.closest(".open-note");
+      if (!link) return;
+
+      event.preventDefault();
+      openNote(Number(link.dataset.index));
+    });
 
     const infoUtiliModal = document.getElementById("infoUtiliModal");
     const infoUtiliClose = document.getElementById("infoUtiliClose");
@@ -4520,6 +4662,7 @@ body.mappa-attiva .leaflet-container {
     });
 
     window.addEventListener("load", function() {
+      aggiornaIndirizziSalvati();
       initHomeCityMap();
       initMap();
       enableSmartTouch(map);
