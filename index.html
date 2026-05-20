@@ -291,8 +291,6 @@
       box-shadow: 0 2px 10px rgba(0,0,0,.55);
     }
 
-    
-
     .leaflet-popup-content {
       font-size: 1rem;
       line-height: 1.35;
@@ -321,7 +319,6 @@
       text-decoration: none;
       font-weight: 900;
     }
-
 
     .place-photo {
       width: 100%;
@@ -355,7 +352,7 @@
         grid-template-columns: repeat(2, 1fr);
       }
     }
-  
+
     .leaflet-popup-close-button {
       font-size: 24px !important;
       width: 40px !important;
@@ -458,7 +455,6 @@
         grid-template-columns: repeat(2, 1fr);
       }
     }
-
 
     /* Ottimizzazione per smartphone */
     @media (max-width: 759px) {
@@ -628,7 +624,6 @@
       }
     }
 
-  
     .popup-image-space,
     .card-image-space {
       width: 100%;
@@ -651,7 +646,6 @@
       }
     }
 
-
     /* Colore rosso per indicatori */
     .marker {
       background: #c40000 !important;
@@ -664,7 +658,6 @@
     .dot-blue {
       background: #c40000 !important;
     }
-
 
     /* Miglioramenti smartphone */
     @media (max-width: 759px) {
@@ -682,31 +675,938 @@
       margin: 0 4px;
     }
 
+    /* Schermata iniziale categorie */
+    .home-screen { display: grid; gap: 14px; }
+    .category-grid { display: grid; gap: 12px; }
+    .category-button {
+      min-height: 82px;
+      border: 4px solid var(--blue);
+      background: var(--blue);
+      color: #ffffff;
+      border-radius: 18px;
+      padding: 16px;
+      font-size: 1.15rem;
+      font-weight: 900;
+      text-align: center;
+      cursor: pointer;
+    }
+    .category-button .small {
+      display: block;
+      font-size: .9rem;
+      font-weight: 800;
+      margin-top: 6px;
+    }
+    .app-screen { display: none; }
+    .app-screen.open { display: block; }
+    .back-button {
+      min-height: 56px;
+      border: 3px solid var(--blue);
+      background: #ffffff;
+      color: var(--blue);
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-size: 1rem;
+      font-weight: 900;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 12px;
+    }
+    .category-title { margin-bottom: 10px; }
+    @media (min-width: 760px) {
+      .category-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* Palette grafica consigliata */
+    :root {
+      --blue: #003f8f;
+      --blue-dark: #002f6c;
+      --blue-light: #eef5ff;
+      --green: #2e7d32;
+      --orange: #ef6c00;
+      --yellow: #ffbf00;
+      --red: #d32f2f;
+      --text: #111111;
+      --muted: #263238;
+      --border: #c7d3e3;
+      --bg: #f6f9fd;
+      --card: #ffffff;
+      --soft: #f2f2f2;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+      color: #ffffff;
+      border-bottom: 0;
+      box-shadow: 0 3px 12px rgba(0, 63, 143, .25);
+    }
+
+    header .subtitle {
+      color: #ffffff;
+    }
+
+    .section {
+      background: #ffffff;
+      border-color: var(--border);
+      box-shadow: 0 3px 14px rgba(0, 63, 143, .08);
+    }
+
+    .map-card {
+      border-color: var(--blue);
+    }
+
+    .map-title {
+      background: var(--blue);
+      color: #ffffff;
+    }
+
+    .map-note {
+      background: var(--blue-light);
+      border-top-color: var(--border);
+    }
+
+    .legend {
+      border-top-color: var(--border);
+    }
+
+    .category-button[data-category="musei"] {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .category-button[data-category="edifici"] {
+      background: var(--green);
+      border-color: var(--green);
+    }
+
+    .category-button[data-category="locali"] {
+      background: var(--orange);
+      border-color: var(--orange);
+    }
+
+    .category-button {
+      box-shadow: 0 4px 12px rgba(0,0,0,.14);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .category-button:hover,
+    .category-button:focus {
+      filter: brightness(1.04);
+      transform: translateY(-1px);
+    }
+
+    .back-button {
+      background: #ffffff;
+      color: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .button-link {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #ffffff;
+      box-shadow: 0 3px 10px rgba(0, 63, 143, .18);
+    }
+
+    .button-link.secondary {
+      background: var(--yellow);
+      border-color: var(--yellow);
+      color: #111111;
+    }
+
+    .place-card {
+      background: #ffffff;
+      border-color: var(--border);
+      box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    }
+
+    .number,
+    .marker,
+    .dot-blue {
+      background: var(--red) !important;
+    }
+
+    .marker {
+      box-shadow: 0 3px 12px rgba(211, 47, 47, .38);
+    }
+
+    .popup-actions a {
+      background: var(--blue);
+      color: #ffffff;
+    }
+
+    .popup-actions a:nth-child(2),
+    .popup-actions a:nth-child(3) {
+      background: var(--yellow);
+      color: #111111;
+    }
+
+    .modal-window {
+      border-color: var(--blue);
+    }
+
+    .modal-close,
+    .leaflet-popup-close-button {
+      background: var(--yellow) !important;
+      color: #000000 !important;
+      border-color: #000000 !important;
+    }
+
+    .popup-image-space,
+    .card-image-space {
+      background: var(--soft);
+      border-color: var(--border);
+      color: var(--muted);
+    }
+
+    a:focus,
+    button:focus,
+    select:focus {
+      outline: 5px solid var(--yellow);
+      outline-offset: 3px;
+    }
+
+    /* Schede punti di interesse aggiornate */
+    .poi-card {
+      overflow: hidden;
+      padding: 0;
+      background: #ffffff;
+    }
+
+    .poi-photo {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      display: block;
+      background: var(--soft);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .poi-content {
+      padding: 14px;
+    }
+
+    .poi-title-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .access-icons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin: 10px 0 12px;
+    }
+
+    .access-icon-card {
+      background: var(--soft);
+      border-radius: 14px;
+      padding: 10px 8px;
+      text-align: center;
+      font-size: .9rem;
+      font-weight: 800;
+      min-height: 76px;
+      display: grid;
+      align-content: center;
+      gap: 4px;
+    }
+
+    .access-symbol {
+      font-size: 1.8rem;
+      line-height: 1;
+      color: var(--blue);
+      font-weight: 900;
+    }
+
+    .access-details {
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      margin: 12px 0;
+      background: #ffffff;
+    }
+
+    .access-details-title {
+      color: var(--blue);
+      font-weight: 900;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      font-size: .95rem;
+    }
+
+    .access-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      padding: 7px 0;
+      border-bottom: 1px solid #e6edf5;
+      font-weight: 800;
+    }
+
+    .access-row:last-child {
+      border-bottom: 0;
+    }
+
+    .access-value {
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    .poi-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .button-link.info {
+      background: var(--yellow);
+      border-color: var(--yellow);
+      color: #111111;
+    }
+
+    .button-link.drive-hidden {
+      display: none;
+    }
+
+    .popup-access-mini {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+      margin: 8px 0;
+    }
+
+    .popup-access-mini span {
+      background: var(--soft);
+      border-radius: 8px;
+      padding: 6px;
+      font-weight: 800;
+      text-align: center;
+      font-size: .85rem;
+    }
+
+    @media (max-width: 759px) {
+      .poi-photo {
+        height: 170px;
+      }
+
+      .access-icons {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .poi-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .access-icon-card {
+        min-height: 70px;
+        font-size: .86rem;
+      }
+    }
+
+    .popup-actions a.popup-info {
+      background: var(--yellow);
+      color: #111111;
+    }
+
+    .popup-actions a.popup-scheda {
+      background: var(--green);
+      color: #ffffff;
+    }
+
+    .button-link.scheda-luogo {
+      background: var(--green);
+      border-color: var(--green);
+      color: #ffffff;
+    }
+
+    @media (min-width: 760px) {
+      .poi-actions {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Sfondo dinamico per categoria */
+    body.musei {
+      background: #eef5ff;
+    }
+
+    body.edifici {
+      background: #e8f5e9;
+    }
+
+    body.locali {
+      background: #fff3e0;
+    }
+
+    /* Colori completi per le sezioni */
+    body.musei {
+      --category-color: var(--blue);
+      --category-light: #eef5ff;
+      background: var(--category-light) !important;
+    }
+
+    body.edifici {
+      --category-color: var(--green);
+      --category-light: #e8f5e9;
+      background: var(--category-light) !important;
+    }
+
+    body.locali {
+      --category-color: var(--orange);
+      --category-light: #fff3e0;
+      background: var(--category-light) !important;
+    }
+
+    body.musei header,
+    body.edifici header,
+    body.locali header {
+      background: var(--category-color) !important;
+    }
+
+    body.musei .map-title,
+    body.edifici .map-title,
+    body.locali .map-title {
+      background: var(--category-color) !important;
+    }
+
+    body.musei .map-card,
+    body.edifici .map-card,
+    body.locali .map-card {
+      border-color: var(--category-color) !important;
+    }
+
+    body.musei .category-title,
+    body.edifici .category-title,
+    body.locali .category-title {
+      border-color: var(--category-color) !important;
+      background: #ffffff !important;
+    }
+
+    body.musei .category-title h2,
+    body.edifici .category-title h2,
+    body.locali .category-title h2 {
+      color: var(--category-color) !important;
+    }
+
+    body.musei .button-link,
+    body.edifici .button-link,
+    body.locali .button-link {
+      background: var(--category-color) !important;
+      border-color: var(--category-color) !important;
+      color: #ffffff !important;
+    }
+
+    body.musei .button-link.info,
+    body.edifici .button-link.info,
+    body.locali .button-link.info {
+      background: var(--yellow) !important;
+      border-color: var(--yellow) !important;
+      color: #111111 !important;
+    }
+
+    body.musei .button-link.scheda-luogo,
+    body.edifici .button-link.scheda-luogo,
+    body.locali .button-link.scheda-luogo {
+      background: var(--green) !important;
+      border-color: var(--green) !important;
+      color: #ffffff !important;
+    }
+
+    body.musei .popup-actions a:first-child,
+    body.edifici .popup-actions a:first-child,
+    body.locali .popup-actions a:first-child {
+      background: var(--category-color) !important;
+      color: #ffffff !important;
+    }
+
+    body.musei .popup-actions a.popup-info,
+    body.edifici .popup-actions a.popup-info,
+    body.locali .popup-actions a.popup-info {
+      background: var(--yellow) !important;
+      color: #111111 !important;
+    }
+
+    body.musei .popup-actions a.popup-scheda,
+    body.edifici .popup-actions a.popup-scheda,
+    body.locali .popup-actions a.popup-scheda {
+      background: var(--green) !important;
+      color: #ffffff !important;
+    }
+
+    body.musei .back-button,
+    body.edifici .back-button,
+    body.locali .back-button {
+      border-color: var(--category-color) !important;
+      color: var(--category-color) !important;
+    }
+
+    /* Palette finale aggiornata */
+    :root {
+      --blue: #1565c0;
+      --blue-dark: #003f8f;
+      --blue-light: #e3f2fd;
+      --green: #2e7d32;
+      --green-light: #e8f5e9;
+      --orange: #ef6c00;
+      --orange-light: #fff3e0;
+      --purple: #7b1fa2;
+      --purple-light: #f3e5f5;
+      --yellow: #ffbf00;
+      --red: #d32f2f;
+      --text: #111111;
+      --muted: #263238;
+      --border: #c7d3e3;
+      --bg: #f6f9fd;
+      --card: #ffffff;
+      --soft: #f2f2f2;
+    }
+
+    .category-button[data-category="musei"] {
+      background: var(--blue) !important;
+      border-color: var(--blue) !important;
+    }
+
+    .category-button[data-category="edifici"] {
+      background: var(--green) !important;
+      border-color: var(--green) !important;
+    }
+
+    .category-button[data-category="locali"] {
+      background: var(--orange) !important;
+      border-color: var(--orange) !important;
+    }
+
+    .category-button[data-category="mia"] {
+      background: var(--purple) !important;
+      border-color: var(--purple) !important;
+    }
+
+    body.musei {
+      --category-color: var(--blue);
+      --category-light: var(--blue-light);
+      background: var(--category-light) !important;
+    }
+
+    body.edifici {
+      --category-color: var(--green);
+      --category-light: var(--green-light);
+      background: var(--category-light) !important;
+    }
+
+    body.locali {
+      --category-color: var(--orange);
+      --category-light: var(--orange-light);
+      background: var(--category-light) !important;
+    }
+
+    body.mia {
+      --category-color: var(--purple);
+      --category-light: var(--purple-light);
+      background: var(--category-light) !important;
+    }
+
+    body.mia header,
+    body.mia .map-title {
+      background: var(--purple) !important;
+    }
+
+    body.mia .map-card,
+    body.mia .category-title {
+      border-color: var(--purple) !important;
+    }
+
+    body.mia .category-title h2,
+    body.mia .back-button {
+      color: var(--purple) !important;
+    }
+
+    body.mia .back-button {
+      border-color: var(--purple) !important;
+    }
+
+    body.mia .button-link {
+      background: var(--purple) !important;
+      border-color: var(--purple) !important;
+      color: #ffffff !important;
+    }
+
+    body.mia .button-link.info {
+      background: var(--yellow) !important;
+      border-color: var(--yellow) !important;
+      color: #111111 !important;
+    }
+
+    body.mia .button-link.scheda-luogo {
+      background: var(--green) !important;
+      border-color: var(--green) !important;
+      color: #ffffff !important;
+    }
+
+    body.mia .popup-actions a:first-child {
+      background: var(--purple) !important;
+      color: #ffffff !important;
+    }
+
+    body.mia .popup-actions a.popup-info {
+      background: var(--yellow) !important;
+      color: #111111 !important;
+    }
+
+    body.mia .popup-actions a.popup-scheda {
+      background: var(--green) !important;
+      color: #ffffff !important;
+    }
+
+    @media (min-width: 900px) {
+      .category-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+      }
+    }
+
+    /* Sfondo bianco per tutte le sezioni */
+    body.musei,
+    body.edifici,
+    body.locali,
+    body.mia {
+      background: #ffffff !important;
+    }
+
+    /* La mia mappa: aggiunta luoghi personalizzati */
+    .personal-tools {
+      display: none;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    body.mia .personal-tools {
+      display: grid;
+    }
+
+    .add-place-panel {
+      display: none;
+      border: 2px solid var(--purple);
+      border-radius: 18px;
+      padding: 14px;
+      background: #ffffff;
+      margin-bottom: 14px;
+    }
+
+    .add-place-panel.open {
+      display: block;
+    }
+
+    .personal-form {
+      display: grid;
+      gap: 10px;
+    }
+
+    .personal-form input,
+    .personal-form textarea {
+      width: 100%;
+      min-height: 52px;
+      border: 3px solid var(--purple);
+      border-radius: 14px;
+      padding: 10px;
+      font-size: 1rem;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 700;
+    }
+
+    .personal-form textarea {
+      min-height: 92px;
+      resize: vertical;
+    }
+
+    .form-actions {
+      display: grid;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .purple-button {
+      min-height: 56px;
+      border: 3px solid var(--purple);
+      background: var(--purple);
+      color: #ffffff;
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-size: 1rem;
+      font-weight: 900;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .purple-button.secondary {
+      background: #ffffff;
+      color: var(--purple);
+    }
+
+    .button-link.delete-place {
+      background: #ffffff !important;
+      border-color: var(--red) !important;
+      color: var(--red) !important;
+    }
+
+    body.mia .button-link.scheda-luogo,
+    body.mia .popup-actions a.popup-scheda {
+      display: none !important;
+    }
+
+    @media (min-width: 760px) {
+      .form-actions {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Mappa della città nella home */
+    .home-city-map-card {
+      padding: 0;
+      overflow: hidden;
+      border-color: var(--blue);
+    }
+
+    .home-city-map-title {
+      background: var(--blue);
+      color: #ffffff;
+      padding: 12px;
+      font-weight: 900;
+    }
+
+    #homeCityMap {
+      width: 100%;
+      height: 300px;
+      background: #e8e8e8;
+    }
+
+    @media (max-width: 759px) {
+      #homeCityMap {
+        height: 260px;
+      }
+    }
+
+
+    /* Layout home/sezioni aggiornato */
+    #homeScreen {
+      margin-bottom: 12px;
+    }
+
+    body.musei #homeCityMap,
+    body.edifici #homeCityMap,
+    body.locali #homeCityMap,
+    body.mia #homeCityMap,
+    body.musei .home-city-map-card,
+    body.edifici .home-city-map-card,
+    body.locali .home-city-map-card,
+    body.mia .home-city-map-card {
+      display: none !important;
+    }
+
+    body.musei #appScreen,
+    body.edifici #appScreen,
+    body.locali #appScreen,
+    body.mia #appScreen {
+      display: block !important;
+    }
+
+    body.musei .map-card,
+    body.edifici .map-card,
+    body.locali .map-card,
+    body.mia .map-card {
+      border-width: 5px !important;
+      border-color: var(--category-color) !important;
+    }
+
+    body.musei .map-title,
+    body.edifici .map-title,
+    body.locali .map-title,
+    body.mia .map-title {
+      background: var(--category-color) !important;
+      color: #ffffff !important;
+    }
+
+    #backHome {
+      display: none !important;
+    }
+
+    .category-title {
+      display: none !important;
+    }
+
+
+    /* Finestra Info utili */
+    .info-useful-window {
+      border-color: var(--category-color, var(--blue));
+    }
+
+    .info-useful-content {
+      display: grid;
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .info-box {
+      border: 3px solid var(--border);
+      border-radius: 18px;
+      padding: 14px;
+      background: #ffffff;
+    }
+
+    .info-label {
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: var(--category-color, var(--blue));
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: .03em;
+    }
+
+    .info-value {
+      font-size: 1.1rem;
+      font-weight: 800;
+      line-height: 1.45;
+      color: var(--text);
+      word-break: break-word;
+    }
+
+    .info-value a {
+      color: var(--blue);
+      font-weight: 900;
+    }
+
+    @media (max-width: 759px) {
+      .info-box {
+        padding: 12px;
+      }
+
+      .info-label {
+        font-size: 1rem;
+      }
+
+      .info-value {
+        font-size: 1rem;
+      }
+    }
+
 </style>
 </head>
 
 <body>
   <a href="#lista-tappe" class="skip-link">Vai alla lista delle tappe</a>
 
-  <header>
-    <h1>Mappa turistica accessibile</h1>
-    <p class="subtitle">Scegli un percorso, guarda la mappa e apri le indicazioni vocali con Google Maps.</p>
-  </header>
-
   <main>
-    <div style="display:none;">
-      <select id="routeSelect" aria-hidden="true">
-        <option value="breve" selected>Percorso breve</option>
-        <option value="completo">Percorso completo</option>
-        <option value="accessibile">Percorso più accessibile</option>
-        <option value="pause">Percorso con pause</option>
-      </select>
-      <p id="routeInfo"></p>
-    </div>
+    <section id="homeScreen" class="section home-screen">
+<div class="category-grid">
+        <button class="category-button" type="button" data-category="musei">
+          Musei
+          <span class="small">Luoghi da visitare</span>
+        </button>
 
-    
+        <button class="category-button" type="button" data-category="edifici">
+          Edifici pubblici
+          <span class="small">Servizi e uffici</span>
+        </button>
 
-    <section class="section map-card" aria-labelledby="mappa-title">
+        <button class="category-button" type="button" data-category="locali">
+          Locali pubblici accessibili
+          <span class="small">Bar, ristoranti e altri luoghi</span>
+        </button>
+
+        <button class="category-button" type="button" data-category="mia">
+          La mia mappa
+          <span class="small">Luoghi preferiti e percorso personale</span>
+        </button>
+      </div>
+
+<section class="section home-city-map-card" aria-labelledby="homeCityMapTitle">
+        <div id="homeCityMapTitle" class="home-city-map-title">Mappa della città di Bra</div>
+        <div id="homeCityMap" aria-label="Mappa della città di Bra"></div>
+      </section>
+    </section>
+
+    <div id="appScreen" class="app-screen">
+      <button id="backHome" class="back-button" type="button">Torna alle categorie</button>
+
+      <section class="section category-title" aria-labelledby="categoryPageTitle">
+        <h2 id="categoryPageTitle">Categoria</h2>
+        <p id="categoryPageDescription" class="subtitle"></p>
+      </section>
+
+      <section id="personalTools" class="section personal-tools" aria-labelledby="personalToolsTitle">
+        <h2 id="personalToolsTitle">La mia mappa</h2>
+        <button id="showAddPlace" class="purple-button" type="button">Aggiungi luogo</button>
+
+        <div id="addPlacePanel" class="add-place-panel">
+          <h3>Aggiungi un nuovo luogo</h3>
+          <form id="personalPlaceForm" class="personal-form">
+            <div>
+              <label for="personalName">Nome del luogo</label>
+              <input id="personalName" type="text" required>
+            </div>
+
+            <div>
+              <label for="personalAddress">Indirizzo</label>
+              <input id="personalAddress" type="text" required>
+            </div>
+
+            <div>
+              <label for="personalDescription">Descrizione breve</label>
+              <textarea id="personalDescription" required></textarea>
+            </div>
+
+            <div>
+              <label for="personalOrari">Orari</label>
+              <textarea id="personalOrari" placeholder="Esempio: dal lunedì al venerdì, 9:00 - 12:00"></textarea>
+            </div>
+
+            <div>
+              <label for="personalContatti">Contatti</label>
+              <textarea id="personalContatti" placeholder="Esempio: telefono, email o referente"></textarea>
+            </div>
+
+            <div>
+              <label for="personalSito">Sito internet</label>
+              <input id="personalSito" type="text" placeholder="Esempio: www.sito.it">
+            </div>
+
+            
+
+            
+
+            <div>
+              <label for="personalImage">Immagine</label>
+              <input id="personalImage" type="file" accept="image/*">
+            </div>
+
+            <div class="form-actions">
+              <button class="purple-button" type="submit">Salva luogo</button>
+              <button id="cancelAddPlace" class="purple-button secondary" type="button">Annulla</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <div style="display:none;">
+        <select id="routeSelect" aria-hidden="true">
+          <option value="breve" selected>Percorso breve</option>
+          <option value="completo">Percorso completo</option>
+          <option value="accessibile">Percorso più accessibile</option>
+          <option value="pause">Percorso con pause</option>
+        </select>
+        <p id="routeInfo"></p>
+      </div>
+
+      <section class="section map-card" aria-labelledby="mappa-title">
       <div class="map-title" id="mappa-title">Mappa del percorso scelto</div>
       <div id="map" aria-label="Mappa visiva del percorso scelto con tappe numerate"></div>
       <p class="map-note">
@@ -714,18 +1614,18 @@
       </p>
       <div class="legend" aria-label="Legenda della mappa">
         <div class="legend-item"><span class="dot dot-blue"></span> Tappa del percorso</div>
-        
+
       </div>
     </section>
 
     <section class="section" id="lista-tappe" aria-labelledby="lista-title">
       <h2 id="lista-title">Tappe del percorso</h2>
-      <p class="subtitle">Ogni tappa ha tre azioni: scheda, guida a piedi, guida in auto.</p>
+
       <p id="statusMessage" class="status" aria-live="polite"></p>
       <ul id="placesList" class="places-list"></ul>
     </section>
+    </div>
   </main>
-
 
   <div id="schedaModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-window">
@@ -739,6 +1639,32 @@
       </div>
     </div>
   </div>
+
+
+  <div id="infoUtiliModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="infoUtiliTitle">
+    <div class="modal-window info-useful-window">
+      <button id="infoUtiliClose" class="modal-close" type="button" aria-label="Chiudi info utili">×</button>
+      <h2 id="infoUtiliTitle" class="modal-title">Info utili</h2>
+
+      <div class="info-useful-content">
+        <div class="info-box">
+          <span class="info-label">Orari</span>
+          <div id="infoOrari" class="info-value"></div>
+        </div>
+
+        <div class="info-box">
+          <span class="info-label">Contatti</span>
+          <div id="infoContatti" class="info-value"></div>
+        </div>
+
+        <div class="info-box">
+          <span class="info-label">Sito internet</span>
+          <div id="infoSito" class="info-value"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
@@ -768,7 +1694,16 @@
         descrizione: "Ingresso senza gradini sul lato destro.",
         pagina: "luoghi/palazzo-comunale.html",
         foto: "img/palazzo-comunale.jpg",
-        accesso: "ok"
+        accesso: "ok",
+        categoria: "edifici",
+        accessibilita: {
+          sediaRotelle: "Sì",
+          ascensore: "Sì",
+          bagno: "Sì",
+          parcheggio: "Sì",
+          guide: "Sì",
+          note: "Informazioni da completare"
+        }
       },
       museo: {
         nome: "Museo Civico",
@@ -778,7 +1713,16 @@
         descrizione: "Ingresso accessibile e ascensore interno.",
         pagina: "luoghi/museo-civico.html",
         foto: "img/museo-civico.jpg",
-        accesso: "ok"
+        accesso: "ok",
+        categoria: "musei",
+        accessibilita: {
+          sediaRotelle: "Sì",
+          ascensore: "Sì",
+          bagno: "Sì",
+          parcheggio: "Sì",
+          guide: "Sì",
+          note: "Informazioni da completare"
+        }
       },
       biblioteca: {
         nome: "Biblioteca Civica",
@@ -788,7 +1732,16 @@
         descrizione: "Ingresso piano e ambiente tranquillo.",
         pagina: "luoghi/biblioteca-civica.html",
         foto: "img/biblioteca-civica.jpg",
-        accesso: "ok"
+        accesso: "ok",
+        categoria: "edifici",
+        accessibilita: {
+          sediaRotelle: "Sì",
+          ascensore: "Sì",
+          bagno: "Sì",
+          parcheggio: "Sì",
+          guide: "Sì",
+          note: "Informazioni da completare"
+        }
       },
       giardino: {
         nome: "Giardino Storico",
@@ -798,7 +1751,16 @@
         descrizione: "Percorso largo con panchine.",
         pagina: "luoghi/giardino-storico.html",
         foto: "img/giardino-storico.jpg",
-        accesso: "ok"
+        accesso: "ok",
+        categoria: "locali",
+        accessibilita: {
+          sediaRotelle: "Sì",
+          ascensore: "Sì",
+          bagno: "Sì",
+          parcheggio: "Sì",
+          guide: "Sì",
+          note: "Informazioni da completare"
+        }
       },
       teatro: {
         nome: "Teatro Civico",
@@ -808,7 +1770,16 @@
         descrizione: "Accesso laterale consigliato.",
         pagina: "luoghi/teatro-civico.html",
         foto: "img/teatro-civico.jpg",
-        accesso: "parziale"
+        accesso: "parziale",
+        categoria: "locali",
+        accessibilita: {
+          sediaRotelle: "Sì",
+          ascensore: "Sì",
+          bagno: "Sì",
+          parcheggio: "Sì",
+          guide: "Sì",
+          note: "Informazioni da completare"
+        }
       }
     };
 
@@ -835,12 +1806,37 @@
       }
     };
 
+    const categorie = {
+      musei: { nome: "Musei", descrizione: "Mappa e tappe dei musei accessibili." },
+      edifici: { nome: "Edifici pubblici", descrizione: "Mappa e tappe di Comune, biblioteca e altri servizi pubblici." },
+      locali: { nome: "Locali pubblici accessibili", descrizione: "Mappa e tappe dei luoghi aperti al pubblico e accessibili." },
+      mia: { nome: "La mia mappa", descrizione: "Mappa personale con luoghi preferiti e tappe scelte." }
+    };
+
+    let currentCategory = null;
+
     const routeSelect = document.getElementById("routeSelect");
     const routeInfo = document.getElementById("routeInfo");
     const statusMessage = document.getElementById("statusMessage");
     const placesList = document.getElementById("placesList");
+    const homeScreen = document.getElementById("homeScreen");
+    const appScreen = document.getElementById("appScreen");
+    const backHome = document.getElementById("backHome");
+    const categoryPageTitle = document.getElementById("categoryPageTitle");
+    const categoryPageDescription = document.getElementById("categoryPageDescription");
+    const showAddPlace = document.getElementById("showAddPlace");
+    const addPlacePanel = document.getElementById("addPlacePanel");
+    const personalPlaceForm = document.getElementById("personalPlaceForm");
+    const cancelAddPlace = document.getElementById("cancelAddPlace");
+    const personalName = document.getElementById("personalName");
+    const personalAddress = document.getElementById("personalAddress");
+    const personalDescription = document.getElementById("personalDescription");
+    
+    
+    const personalImage = document.getElementById("personalImage");
 
     let map;
+    let homeCityMap;
     let markers = [];
     let routeLine = null;
 
@@ -861,7 +1857,7 @@
       const stops = getCurrentStops();
       const tappa = stops[index];
 
-      if (!tappa) return;
+      if (!tappa || tappa.isPersonal) return;
 
       lastFocusedElement = document.activeElement;
       modalTitle.textContent = tappa.nome;
@@ -902,6 +1898,10 @@
       if (event.key === "Escape" && modal.classList.contains("open")) {
         closeScheda();
       }
+
+      if (event.key === "Escape" && infoUtiliModal.classList.contains("open")) {
+        closeInfoUtili();
+      }
     });
 
     document.addEventListener("click", function(event) {
@@ -923,12 +1923,69 @@
       });
     }
 
+    function loadPersonalPlaces() {
+      try {
+        return JSON.parse(localStorage.getItem("laMiaMappaLuoghi")) || [];
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function savePersonalPlaces(places) {
+      localStorage.setItem("laMiaMappaLuoghi", JSON.stringify(places));
+    }
+
+    function fileToDataUrl(file) {
+      return new Promise((resolve) => {
+        if (!file) {
+          resolve("");
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = () => resolve("");
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function getPersonalStops() {
+      return loadPersonalPlaces().map((place, index) => ({
+        id: place.id,
+        nome: place.nome,
+        lat: Number(place.lat),
+        lng: Number(place.lng),
+        indirizzo: place.indirizzo,
+        descrizione: place.descrizione,
+        pagina: "",
+        foto: place.foto || "",
+        accesso: "ok",
+        categoria: "mia",
+        isPersonal: true,
+        personalIndex: index,
+        infoUtili: {
+          orari: place.orari || "Orari non inseriti.",
+          contatti: place.contatti || "Contatti non inseriti.",
+          sito: place.sito || "Sito internet non inserito."
+        }
+      })).filter(place => Number.isFinite(place.lat) && Number.isFinite(place.lng));
+    }
+
+    function deletePersonalPlace(index) {
+      const places = loadPersonalPlaces();
+      places.splice(index, 1);
+      savePersonalPlaces(places);
+      renderAll();
+    }
+
     function getCurrentRoute() {
       return percorsi[routeSelect.value];
     }
 
     function getCurrentStops() {
-      return getCurrentRoute().tappe.map(id => tappe[id]);
+      if (!currentCategory) return [];
+      if (currentCategory === "mia") return getPersonalStops();
+      return Object.values(tappe).filter(tappa => tappa.categoria === currentCategory);
     }
 
     function clearMap() {
@@ -942,6 +1999,8 @@
     }
 
     function renderMap() {
+      if (!currentCategory) return;
+
       clearMap();
 
       const stops = getCurrentStops();
@@ -971,9 +2030,9 @@
           <div>${tappa.descrizione}</div>
 
           <div class="popup-actions">
-            <a href="#" class="open-scheda" data-index="${index}">Apri scheda</a>
-            <a href="${googleMapsLink(tappa, "walking")}" target="_blank" rel="noopener">Guida a piedi</a>
-            <a href="${googleMapsLink(tappa, "driving")}" target="_blank" rel="noopener">Guida in auto</a>
+            <a href="${googleMapsLink(tappa, "walking")}" target="_blank" rel="noopener">Portami qui</a>
+            <a href="#" class="popup-info open-info-utili" data-index="${index}">Info utili</a>
+            ${tappa.isPersonal ? "" : `<a href="#" class="popup-scheda open-scheda" data-index="${index}">Scheda del luogo</a>`}
           </div>
         `);
 
@@ -992,11 +2051,13 @@
     }
 
     function renderList() {
-      const route = getCurrentRoute();
+      if (!currentCategory) return;
+
+      const category = categorie[currentCategory];
       const stops = getCurrentStops();
 
-      if (routeInfo) routeInfo.textContent = `${route.nome}: ${route.descrizione}`;
-      statusMessage.textContent = `Sono mostrate ${stops.length} tappe.`;
+      if (routeInfo) routeInfo.textContent = `${category.nome}: ${category.descrizione}`;
+      statusMessage.textContent = currentCategory === "mia" && stops.length === 0 ? "Non hai ancora aggiunto luoghi." : `Sono mostrate ${stops.length} tappe.`;
       placesList.innerHTML = "";
 
       stops.forEach((tappa, index) => {
@@ -1013,21 +2074,19 @@
             </div>
           </div>
 
-
           <img class="place-photo" src="${tappa.foto}" alt="Foto di ${tappa.nome}" onerror="this.style.display='none'">
           <div class="card-image-space">Spazio immagine</div>
           <p class="place-description">${tappa.descrizione}</p>
 
-
-          <div class="actions" aria-label="Azioni per ${tappa.nome}">
-            <a class="button-link open-scheda" href="#" data-index="${index}">
-              Apri scheda
+          <div class="actions poi-actions" aria-label="Azioni per ${tappa.nome}">
+            <a class="button-link" href="${googleMapsLink(tappa, "walking")}" target="_blank" rel="noopener">
+              Portami qui
             </a>
-            <a class="button-link secondary" href="${googleMapsLink(tappa, "walking")}" target="_blank" rel="noopener">
-              Guida a piedi
+            <a class="button-link info" href="#lista-tappe">
+              Info utili
             </a>
-            <a class="button-link secondary" href="${googleMapsLink(tappa, "driving")}" target="_blank" rel="noopener">
-              Guida in auto
+            <a class="button-link scheda-luogo open-scheda" href="#" data-index="${index}">
+              Scheda del luogo
             </a>
           </div>
         `;
@@ -1039,6 +2098,22 @@
     function renderAll() {
       renderMap();
       renderList();
+    }
+
+    function initHomeCityMap() {
+      homeCityMap = L.map("homeCityMap", {
+        zoomControl: true,
+        scrollWheelZoom: false,
+        dragging: true,
+        tap: true
+      }).setView([44.6978, 7.8554], 15);
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution: "&copy; OpenStreetMap"
+      }).addTo(homeCityMap);
+
+      L.marker([44.6978, 7.8554]).addTo(homeCityMap).bindPopup("Bra");
     }
 
     function initMap() {
@@ -1053,11 +2128,166 @@
         attribution: "&copy; OpenStreetMap"
       }).addTo(map);
 
-      renderAll();
+      if (currentCategory) {
+        renderAll();
+      }
     }
 
-    if (routeSelect) routeSelect.addEventListener("change", renderAll);
+    function openCategory(categoryKey) {
+      currentCategory = categoryKey;
+      const category = categorie[currentCategory];
 
+      document.body.classList.remove("musei", "edifici", "locali", "mia");
+      document.body.classList.add(categoryKey);
+
+      appScreen.classList.remove("musei", "edifici", "locali", "mia");
+      appScreen.classList.add(categoryKey);
+
+      categoryPageTitle.textContent = category.nome;
+      categoryPageDescription.textContent = category.descrizione;
+
+      homeScreen.style.display = "grid";
+      appScreen.classList.add("open");
+
+      renderAll();
+
+      setTimeout(() => {
+        map.invalidateSize();
+        if (markers.length > 0) {
+          const group = L.featureGroup(markers);
+          map.fitBounds(group.getBounds().pad(0.22));
+        }
+      }, 250);
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function goHome() {
+      currentCategory = null;
+      clearMap();
+      placesList.innerHTML = "";
+      statusMessage.textContent = "";
+
+      document.body.classList.remove("musei", "edifici", "locali", "mia");
+      appScreen.classList.remove("musei", "edifici", "locali", "mia");
+
+      appScreen.classList.remove("open");
+      homeScreen.style.display = "grid";
+      setTimeout(() => {
+        if (homeCityMap) homeCityMap.invalidateSize();
+      }, 250);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    document.querySelectorAll(".category-button").forEach(button => {
+      button.addEventListener("click", function() {
+        openCategory(this.dataset.category);
+      });
+    });
+
+    backHome.addEventListener("click", goHome);
+
+    showAddPlace.addEventListener("click", function() {
+      addPlacePanel.classList.add("open");
+      personalName.focus();
+    });
+
+    cancelAddPlace.addEventListener("click", function() {
+      personalPlaceForm.reset();
+      addPlacePanel.classList.remove("open");
+    });
+
+    personalPlaceForm.addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      const imageFile = personalImage.files && personalImage.files[0] ? personalImage.files[0] : null;
+      const imageData = await fileToDataUrl(imageFile);
+
+      const places = loadPersonalPlaces();
+      places.push({
+        id: Date.now(),
+        nome: personalName.value.trim(),
+        indirizzo: personalAddress.value.trim(),
+        descrizione: personalDescription.value.trim(),
+        
+        
+        foto: imageData
+      });
+
+      savePersonalPlaces(places);
+      personalPlaceForm.reset();
+      addPlacePanel.classList.remove("open");
+      renderAll();
+    });
+
+    document.addEventListener("click", function(event) {
+      const deleteButton = event.target.closest("[data-delete-index]");
+      if (!deleteButton) return;
+
+      event.preventDefault();
+      deletePersonalPlace(Number(deleteButton.dataset.deleteIndex));
+    });
+
+
+    const infoUtiliModal = document.getElementById("infoUtiliModal");
+    const infoUtiliClose = document.getElementById("infoUtiliClose");
+    const infoUtiliTitle = document.getElementById("infoUtiliTitle");
+    const infoOrari = document.getElementById("infoOrari");
+    const infoContatti = document.getElementById("infoContatti");
+    const infoSito = document.getElementById("infoSito");
+
+    function formatSito(value) {
+      if (!value || value === "Sito internet non inserito." || value === "Inserisci qui il sito internet.") {
+        return value || "Sito internet non inserito.";
+      }
+
+      const safeText = value;
+      const href = value.startsWith("http://") || value.startsWith("https://") ? value : "https://" + value;
+      return `<a href="${href}" target="_blank" rel="noopener">${safeText}</a>`;
+    }
+
+    function openInfoUtili(index) {
+      const stops = getCurrentStops();
+      const tappa = stops[index];
+      if (!tappa) return;
+
+      const info = tappa.infoUtili || {
+        orari: "Inserisci qui gli orari del luogo.",
+        contatti: "Inserisci qui telefono, email o referente.",
+        sito: "Inserisci qui il sito internet."
+      };
+
+      infoUtiliTitle.textContent = "Info utili - " + tappa.nome;
+      infoOrari.textContent = info.orari || "Orari non inseriti.";
+      infoContatti.textContent = info.contatti || "Contatti non inseriti.";
+      infoSito.innerHTML = formatSito(info.sito);
+
+      infoUtiliModal.classList.add("open");
+      infoUtiliClose.focus();
+    }
+
+    function closeInfoUtili() {
+      infoUtiliModal.classList.remove("open");
+    }
+
+    infoUtiliClose.addEventListener("click", closeInfoUtili);
+
+    infoUtiliModal.addEventListener("click", function(event) {
+      if (event.target === infoUtiliModal) {
+        closeInfoUtili();
+      }
+    });
+
+    document.addEventListener("click", function(event) {
+      const link = event.target.closest(".open-info-utili");
+      if (!link) return;
+
+      event.preventDefault();
+      openInfoUtili(Number(link.dataset.index));
+    });
+
+
+    if (routeSelect) routeSelect.addEventListener("change", renderAll);
 
     window.addEventListener("resize", function() {
       if (map) {
@@ -1071,7 +2301,10 @@
       }
     });
 
-    window.addEventListener("load", initMap);
+    window.addEventListener("load", function() {
+      initHomeCityMap();
+      initMap();
+    });
   </script>
 </body>
 </html>
