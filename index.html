@@ -2851,8 +2851,8 @@ a.portami-qui,
 .leaflet-container,
 .leaflet-pane,
 .leaflet-map-pane {
-  touch-action: none !important;
-  -ms-touch-action: none !important;
+  touch-action: pan-y pinch-zoom !important;
+  -ms-touch-action: pan-y pinch-zoom !important;
 }
 
 .leaflet-container {
@@ -3085,8 +3085,8 @@ a.portami-qui,
   .leaflet-container,
   .leaflet-pane,
   .leaflet-map-pane {
-    touch-action: none !important;
-    -ms-touch-action: none !important;
+    touch-action: pan-y pinch-zoom !important;
+    -ms-touch-action: pan-y pinch-zoom !important;
   }
 
   .leaflet-control-zoom a {
@@ -3868,6 +3868,18 @@ body.mia .popup-actions a.popup-scheda {
       }, 160);
     }
 
+    
+    // GESTIONE TOUCH: 1 dito scroll, 2 dita mappa
+    function enableSmartTouch(mapInstance) {
+      mapInstance.on('touchstart', function (e) {
+        if (e.touches && e.touches.length === 2) {
+          mapInstance.dragging.enable();
+        } else {
+          mapInstance.dragging.disable();
+        }
+      });
+    }
+
     function googleMapsLink(tappa, mode) {
       return `https://www.google.com/maps/dir/?api=1&destination=${tappa.lat},${tappa.lng}&travelmode=${mode}&dir_action=navigate`;
     }
@@ -4141,7 +4153,7 @@ body.mia .popup-actions a.popup-scheda {
       homeCityMap = L.map("homeCityMap", {
         zoomControl: true,
         scrollWheelZoom: true,
-        dragging: true,
+        dragging: false,
         touchZoom: true,
         doubleClickZoom: true,
         boxZoom: true,
@@ -4161,7 +4173,7 @@ body.mia .popup-actions a.popup-scheda {
       map = L.map("map", {
         zoomControl: true,
         scrollWheelZoom: true,
-        dragging: true,
+        dragging: false,
         touchZoom: true,
         doubleClickZoom: true,
         boxZoom: true,
@@ -4397,6 +4409,8 @@ body.mia .popup-actions a.popup-scheda {
     window.addEventListener("load", function() {
       initHomeCityMap();
       initMap();
+      enableSmartTouch(map);
+      enableSmartTouch(homeCityMap);
       enableMapTouchDrag();
       updateMobileAppUI(null);
       forceMobileMapRefresh();
