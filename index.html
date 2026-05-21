@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#1565c0" />
@@ -3547,100 +3546,109 @@ body.mappa-attiva .leaflet-container {
 }
 
 
-/* FONT SANS SERIF GLOBALE */
-body, button, input, textarea {
-  font-family: Arial, Helvetica, sans-serif !important;
+/* PULSANTI HOME PIÙ GRANDI */
+.category-button {
+  min-height: 120px !important;
+  font-size: 1.35rem !important;
+  padding: 22px !important;
+}
+
+.category-button .small {
+  font-size: 1rem !important;
+  margin-top: 10px !important;
+}
+
+@media (max-width: 759px) {
+  .category-button {
+    min-height: 92px !important;
+    font-size: 1.05rem !important;
+    padding: 14px !important;
+  }
+
+  .category-button .small {
+    font-size: .82rem !important;
+    margin-top: 6px !important;
+  }
 }
 
 
-/* FONT OPEN SANS GLOBALE */
-* {
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+/* PULSANTI HOME EQUIDISTANTI */
+.category-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 18px !important;
+  align-items: stretch !important;
 }
 
-
-/* MARKER A GOCCIA CORRETTO */
-.marker {
-  width: 34px !important;
-  height: 34px !important;
-  background: #F94144 !important;
-  color: #ffffff !important;
-  font-weight: 900 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  border-radius: 50% 50% 50% 0 !important;
-  transform: rotate(-45deg) !important;
-  border: 2px solid #ffffff !important;
-  position: relative;
-}
-
-.marker span {
-  transform: rotate(45deg);
-  display: block;
-}
-
-.marker::after {
-  content: "";
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  background: #ffffff;
-  border-radius: 50%;
-  bottom: 4px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-
-/* NUMERO VISIBILE NEI MARKER */
-.marker {
-  font-size: 16px !important;
-  line-height: 1 !important;
-}
-
-.marker span {
-  transform: rotate(45deg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
-
-
-/* MARKER A GOCCIA CON NUMERO */
-.marker {
-  width: 38px !important;
-  height: 38px !important;
-  background: #F94144 !important;
-  color: #ffffff !important;
-  border: 3px solid #ffffff !important;
-  border-radius: 50% 50% 50% 0 !important;
-  transform: rotate(-45deg) !important;
-  box-shadow: 0 3px 12px rgba(0,0,0,.35) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  font-weight: 900 !important;
-  font-size: 17px !important;
-  line-height: 1 !important;
-}
-
-.marker span {
-  transform: rotate(45deg) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+.category-button {
   width: 100% !important;
   height: 100% !important;
-  color: #ffffff !important;
-  font-weight: 900 !important;
+  min-height: 120px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
-.marker::after {
-  display: none !important;
-  content: none !important;
+@media (max-width: 759px) {
+  .category-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .category-button {
+    min-height: 92px !important;
+  }
+}
+
+
+/* MIGLIORIE SMARTPHONE */
+
+@media (max-width: 759px) {
+
+  /* Più spazio tra campi form */
+  .personal-form {
+    gap: 14px !important;
+  }
+
+  .personal-form input,
+  .personal-form textarea {
+    margin-bottom: 6px !important;
+  }
+
+  /* Popup più leggibili */
+  .leaflet-popup-content {
+    width: min(260px, 80vw) !important;
+    font-size: 1rem !important;
+  }
+
+  .popup-actions a {
+    margin-top: 4px !important;
+  }
+
+  /* Migliore scroll rispetto alla mappa */
+  #map {
+    touch-action: pan-y pinch-zoom !important;
+  }
+
+  /* Pulsanti più distanziati */
+  .poi-actions,
+  .actions {
+    gap: 12px !important;
+  }
+
+  /* Migliore leggibilità testi */
+  p, .place-description {
+    line-height: 1.5 !important;
+  }
+
+  /* Barra categorie meno invasiva */
+  .category-grid {
+    height: 70px !important;
+  }
+
+  main {
+    padding-bottom: 90px !important;
+  }
 }
 
 </style>
@@ -3666,13 +3674,7 @@ body, button, input, textarea {
           Edifici pubblici
           <span class="small">Servizi e uffici</span>
         </button>
-
-        <button class="category-button" type="button" data-category="locali" aria-label="Apri locali pubblici accessibili">
-          Locali pubblici accessibili
-          <span class="small">Bar, ristoranti e altri luoghi</span>
-        </button>
-
-        <button class="category-button" type="button" data-category="mia" aria-label="Apri la mia mappa">
+<button class="category-button" type="button" data-category="mia" aria-label="Apri la mia mappa">
           La mia mappa
           <span class="small">Luoghi preferiti e percorso personale</span>
         </button>
@@ -3986,7 +3988,7 @@ body, button, input, textarea {
     const categorie = {
       musei: { nome: "Musei", descrizione: "Mappa e tappe dei musei accessibili." },
       edifici: { nome: "Edifici pubblici", descrizione: "Mappa e tappe di Comune, biblioteca e altri servizi pubblici." },
-      locali: { nome: "Locali pubblici accessibili", descrizione: "Mappa e tappe dei luoghi aperti al pubblico e accessibili." },
+
       mia: { nome: "La mia mappa", descrizione: "Mappa personale con luoghi preferiti e tappe scelte." }
     };
 
@@ -4201,7 +4203,7 @@ body, button, input, textarea {
 
       return L.divIcon({
         className: "",
-        html: `<div class="marker ${partialClass}"><span>${number}</span></div>`,
+        html: `<div class="marker ${partialClass}">${number}</div>`,
         iconSize: [42, 42],
         iconAnchor: [21, 21],
         popupAnchor: [0, -24]
