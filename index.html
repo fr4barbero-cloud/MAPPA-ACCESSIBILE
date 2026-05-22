@@ -3977,6 +3977,25 @@ body.mia .category-button[data-category="mia"] {
   }
 }
 
+
+
+/* Richieste finali: popup sopra lo zoom e mappa bloccata */
+.leaflet-popup-pane,
+.leaflet-popup {
+  z-index: 10000 !important;
+}
+
+.leaflet-control-container,
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 400 !important;
+}
+
+body:not(.mappa-attiva) #map .leaflet-control-zoom {
+  pointer-events: none !important;
+  opacity: .45 !important;
+}
+
 </style>
 </head>
 
@@ -4172,7 +4191,7 @@ body.mia .category-button[data-category="mia"] {
         indirizzo: "Strada Fey 1, 12042 Bra (CN)",
         descrizione: "Punto panoramico e simbolo della città di Bra.",
         pagina: "luoghi/la-zizzola.html",
-        foto: "zizzola.png",
+        foto: "immagini/zizzola.png",
         accesso: "ok",
         categoria: "musei",
         infoUtili: {
@@ -4196,7 +4215,7 @@ body.mia .category-button[data-category="mia"] {
         indirizzo: "Via Barbacana 49, 12042 Bra (CN)",
         descrizione: "Chiesa storica progettata da Bernardo Antonio Vittone.",
         pagina: "luoghi/chiesa-santa-chiara.html",
-        foto: "santachiara.png",
+        foto: "immagini/santachiara.png",
         accesso: "ok",
         categoria: "musei",
         infoUtili: {
@@ -4220,7 +4239,7 @@ body.mia .category-button[data-category="mia"] {
         indirizzo: "Piazza Caduti per la Libertà 20, 12042 Bra (CN)",
         descrizione: "Palazzo storico sede di mostre, eventi e iniziative culturali.",
         pagina: "luoghi/palazzo-mathis.html",
-        foto: "mathis.png",
+        foto: "immagini/mathis.png",
         accesso: "ok",
         categoria: "musei",
         infoUtili: {
@@ -4244,7 +4263,7 @@ body.mia .category-button[data-category="mia"] {
         indirizzo: "Via Serra, 12042 Bra (CN)",
         descrizione: "Museo civico con raccolte archeologiche e storiche.",
         pagina: "luoghi/palazzo-traversa.html",
-        foto: "traversa.png",
+        foto: "immagini/traversa.png",
         accesso: "ok",
         categoria: "musei",
         infoUtili: {
@@ -4268,7 +4287,7 @@ body.mia .category-button[data-category="mia"] {
         indirizzo: "Via Craveri 15, 12042 Bra (CN)",
         descrizione: "Museo civico dedicato alla storia naturale.",
         pagina: "luoghi/museo-craveri.html",
-        foto: "museocraveri.png",
+        foto: "immagini/museocraveri.png",
         accesso: "ok",
         categoria: "musei",
         infoUtili: {
@@ -4292,7 +4311,7 @@ body.mia .category-button[data-category="mia"] {
         indirizzo: "Via Ernesto Guala 45, 12042 Bra (CN)",
         descrizione: "Museo dedicato alla storia del giocattolo.",
         pagina: "luoghi/museo-giocattolo.html",
-        foto: "giocattolo.png",
+        foto: "immagini/giocattolo.png",
         accesso: "ok",
         categoria: "musei",
         infoUtili: {
@@ -4316,7 +4335,7 @@ body.mia .category-button[data-category="mia"] {
         indirizzo: "Vicolo Sant'Andrea 1, 12042 Bra (CN)",
         descrizione: "Chiesa parrocchiale del centro storico di Bra.",
         pagina: "luoghi/chiesa-sant-andrea.html",
-        foto: "sant\'andrea(2).png",
+        foto: "immagini/santandrea.png",
         accesso: "ok",
         categoria: "musei",
         infoUtili: {
@@ -4420,10 +4439,11 @@ body.mia .category-button[data-category="mia"] {
       setTimeout(function() {
         if (map) {
           map.invalidateSize();
-          map.dragging.enable();
-          map.touchZoom.enable();
-          map.doubleClickZoom.enable();
-          map.scrollWheelZoom.enable();
+          const btnMappa = document.getElementById("attivaMappa");
+          const mappaAttiva = btnMappa && btnMappa.dataset.attiva === "true";
+          if (!mappaAttiva) {
+            bloccaMappaSempre();
+          }
         }
 
         if (homeCityMap) {
@@ -4459,6 +4479,9 @@ body.mia .category-button[data-category="mia"] {
         map.touchZoom.disable();
         map.scrollWheelZoom.disable();
         map.doubleClickZoom.disable();
+        map.boxZoom.disable();
+        map.keyboard.disable();
+        centraMappaSuPalliniRossi();
       }
 
       if (btnMappa) {
@@ -4487,6 +4510,8 @@ body.mia .category-button[data-category="mia"] {
             map.touchZoom.enable();
             map.scrollWheelZoom.enable();
             map.doubleClickZoom.enable();
+            map.boxZoom.enable();
+            map.keyboard.enable();
             map.invalidateSize();
           }
 
@@ -4703,6 +4728,17 @@ body.mia .category-button[data-category="mia"] {
       }
     }
 
+    function centraMappaSuPalliniRossi() {
+      if (!map || !markers || markers.length === 0) return;
+
+      const group = L.featureGroup(markers);
+      map.fitBounds(group.getBounds().pad(0.18), {
+        animate: false,
+        maxZoom: 16
+      });
+    }
+
+
     function renderMap() {
       if (!currentCategory) return;
 
@@ -4723,7 +4759,8 @@ body.mia .category-button[data-category="mia"] {
         marker.bindPopup(`
 
           <div class="popup-title">${number}. ${tappa.nome}</div>
-          <img class="popup-photo" src="${tappa.foto}" alt="Foto di ${tappa.nome}" onerror="this.style.display='none'"><div>${tappa.descrizione}</div>
+          <img class="popup-photo" src="${tappa.foto}" alt="Foto di ${tappa.nome}" onerror="this.style.display='none'">
+          <div>${tappa.descrizione}</div>
 
           <div class="popup-actions">
             <a class="portami-qui" style="background:#c40000 !important; border-color:#c40000 !important; color:#ffffff !important;" href="${googleMapsLink(tappa, "walking")}" target="_blank" rel="noopener">Portami qui</a>
@@ -4735,17 +4772,15 @@ body.mia .category-button[data-category="mia"] {
         markers.push(marker);
       });
 
-      const layers = [...markers];
-      if (routeLine) layers.push(routeLine);
-
-      if (layers.length > 0) {
-        const group = L.featureGroup(layers);
-        map.fitBounds(group.getBounds().pad(0.22));
-      }
-
-      /* CENTRO FISSO BRA */
-      map.setView([44.6978, 7.8554], 16);
-      setTimeout(() => map.invalidateSize(), 200);
+      centraMappaSuPalliniRossi();
+      setTimeout(() => {
+        map.invalidateSize();
+        centraMappaSuPalliniRossi();
+        const btnMappa = document.getElementById("attivaMappa");
+        if (!btnMappa || btnMappa.dataset.attiva !== "true") {
+          bloccaMappaSempre();
+        }
+      }, 200);
     }
 
     function renderList() {
@@ -4903,10 +4938,8 @@ body.mia .category-button[data-category="mia"] {
 
       setTimeout(() => {
         map.invalidateSize();
-        if (markers.length > 0) {
-          const group = L.featureGroup(markers);
-          map.fitBounds(group.getBounds().pad(0.22));
-        }
+        centraMappaSuPalliniRossi();
+        bloccaMappaSempre();
       }, 250);
 
       window.scrollTo({ top: 0, behavior: "smooth" });
