@@ -4175,6 +4175,62 @@ body:not(.mappa-attiva) #map .leaflet-control-zoom {
   </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+
+/* BLOCCO SPOSTAMENTO MAPPA SU CLICK DEI PALLINI ROSSI
+   Non modifica foto, marker o popup.
+   La mappa può muoversi solo quando il pulsante "Muovi mappa" risulta attivo. */
+(function () {
+  const originalSetView = L.Map.prototype.setView;
+  const originalPanTo = L.Map.prototype.panTo;
+  const originalFlyTo = L.Map.prototype.flyTo;
+  const originalFitBounds = L.Map.prototype.fitBounds;
+
+  function isMoveMapActive() {
+    const btn = document.getElementById("moveMapToggle");
+    if (!btn) return false;
+    return btn.getAttribute("aria-pressed") === "true" ||
+           btn.classList.contains("map-unlocked") ||
+           /BLOCCA MAPPA/i.test(btn.textContent || "");
+  }
+
+  function isPopupOrMarkerEventBlocked() {
+    return window.__blockMapMovementFromMarkerClick === true && !isMoveMapActive();
+  }
+
+  L.Map.prototype.setView = function () {
+    if (isPopupOrMarkerEventBlocked()) return this;
+    return originalSetView.apply(this, arguments);
+  };
+
+  L.Map.prototype.panTo = function () {
+    if (isPopupOrMarkerEventBlocked()) return this;
+    return originalPanTo.apply(this, arguments);
+  };
+
+  L.Map.prototype.flyTo = function () {
+    if (isPopupOrMarkerEventBlocked()) return this;
+    return originalFlyTo.apply(this, arguments);
+  };
+
+  L.Map.prototype.fitBounds = function () {
+    if (isPopupOrMarkerEventBlocked()) return this;
+    return originalFitBounds.apply(this, arguments);
+  };
+
+  document.addEventListener("click", function (event) {
+    const marker = event.target.closest && event.target.closest(".marker, .leaflet-marker-icon");
+    if (!marker) return;
+
+    window.__blockMapMovementFromMarkerClick = true;
+    setTimeout(function () {
+      window.__blockMapMovementFromMarkerClick = false;
+    }, 600);
+  }, true);
+})();
+
+</script>
+
 
   <script>
     /*
@@ -4361,6 +4417,223 @@ body:not(.mappa-attiva) #map .leaflet-control-zoom {
           parcheggio: "Informazioni da verificare",
           guide: "Informazioni da verificare",
           note: "Informazioni da completare"
+        }
+      }
+,
+      comune_bra: {
+        nome: "Comune di Bra",
+        lat: 44.6979,
+        lng: 7.8553,
+        indirizzo: "Piazza Caduti per la Libertà 14, 12042 Bra (CN)",
+        descrizione: "Sede principale del Comune di Bra.",
+        pagina: "edifici/comune-di-bra.html",
+        foto: "comune.png",
+        accesso: "ok",
+        categoria: "edifici",
+        infoUtili: {
+          orari: "Lun–Ven 08:45–12:45; giovedì anche 14:00–16:00",
+          contatti: "+39 0172 438111",
+          sito: "https://www.comune.bra.cn.it/it"
+        },
+        accessibilita: {
+          sediaRotelle: "Informazioni da verificare",
+          ascensore: "Informazioni da verificare",
+          bagno: "Informazioni da verificare",
+          parcheggio: "Informazioni da verificare",
+          guide: "Informazioni da verificare",
+          note: "Verificare accesso aggiornato prima della visita."
+        }
+      },
+      biblioteca_civica: {
+        nome: "Biblioteca Civica Giovanni Arpino",
+        lat: 44.69295,
+        lng: 7.8571,
+        indirizzo: "Via Ernesto Guala 45, 12042 Bra (CN)",
+        descrizione: "Biblioteca civica con servizi di lettura, consultazione e prestito.",
+        pagina: "edifici/biblioteca-civica.html",
+        foto: "biblioteca.png",
+        accesso: "ok",
+        categoria: "edifici",
+        infoUtili: {
+          orari: "Lun 14:00–18:30; Mar–Gio 09:00–12:00 e 14:00–18:30; Ven 09:00–12:00 e 14:00–18:00; Sab 09:00–12:30",
+          contatti: "+39 0172 413049",
+          sito: "https://www.comune.bra.cn.it/it/page/biblioteca-civica-giovanni-arpino"
+        },
+        accessibilita: {
+          sediaRotelle: "Informazioni da verificare",
+          ascensore: "Informazioni da verificare",
+          bagno: "Informazioni da verificare",
+          parcheggio: "Informazioni da verificare",
+          guide: "Informazioni da verificare",
+          note: "Verificare eventuali servizi accessibili disponibili."
+        }
+      },
+      teatro_politeama: {
+        nome: "Teatro Politeama Boglione",
+        lat: 44.6990,
+        lng: 7.8559,
+        indirizzo: "Piazza Carlo Alberto 23, 12042 Bra (CN)",
+        descrizione: "Teatro cittadino per spettacoli, eventi e attività culturali.",
+        pagina: "edifici/teatro-politeama.html",
+        foto: "politeama.png",
+        accesso: "ok",
+        categoria: "edifici",
+        infoUtili: {
+          orari: "Apertura in occasione di spettacoli ed eventi",
+          contatti: "+39 0172 430185",
+          sito: "https://www.comune.bra.cn.it/it/page/teatro-politeama-boglione"
+        },
+        accessibilita: {
+          sediaRotelle: "Informazioni da verificare",
+          ascensore: "Informazioni da verificare",
+          bagno: "Informazioni da verificare",
+          parcheggio: "Informazioni da verificare",
+          guide: "Informazioni da verificare",
+          note: "Gli orari cambiano in base agli eventi."
+        }
+      },
+      stazione_bra: {
+        nome: "Stazione di Bra",
+        lat: 44.6922,
+        lng: 7.8594,
+        indirizzo: "Piazza Roma, 12042 Bra (CN)",
+        descrizione: "Stazione ferroviaria della città di Bra.",
+        pagina: "edifici/stazione-bra.html",
+        foto: "stazione.png",
+        accesso: "ok",
+        categoria: "edifici",
+        infoUtili: {
+          orari: "Sempre accessibile",
+          contatti: "Informazioni non disponibili",
+          sito: "https://www.trenitalia.com/it.html"
+        },
+        accessibilita: {
+          sediaRotelle: "Informazioni da verificare",
+          ascensore: "Informazioni da verificare",
+          bagno: "Informazioni da verificare",
+          parcheggio: "Informazioni da verificare",
+          guide: "Informazioni da verificare",
+          note: "Verificare servizi ferroviari e accessibilità prima della partenza."
+        }
+      },
+      movicentro_bra: {
+        nome: "BRA - Movicentro",
+        lat: 44.6924,
+        lng: 7.8599,
+        indirizzo: "Piazzale Stazione FS, 12042 Bra (CN)",
+        descrizione: "Area di interscambio presso la stazione ferroviaria.",
+        pagina: "edifici/movicentro-bra.html",
+        foto: "movicentro.png",
+        accesso: "ok",
+        categoria: "edifici",
+        infoUtili: {
+          orari: "Sempre accessibile",
+          contatti: "Informazioni non disponibili",
+          sito: "https://www.comune.bra.cn.it/it/page/richiesta-sale-e-spazi-comunali-movicentro-zizzola-"
+        },
+        accessibilita: {
+          sediaRotelle: "Informazioni da verificare",
+          ascensore: "Informazioni da verificare",
+          bagno: "Informazioni da verificare",
+          parcheggio: "Informazioni da verificare",
+          guide: "Informazioni da verificare",
+          note: "Area collegata alla stazione."
+        }
+      },
+      palazzetto_sport: {
+        nome: "Palazzetto dello sport",
+        lat: 44.6905,
+        lng: 7.8668,
+        indirizzo: "Viale Risorgimento 31A, 12042 Bra (CN)",
+        descrizione: "Impianto sportivo per attività e manifestazioni.",
+        pagina: "edifici/palazzetto-dello-sport.html",
+        foto: "palazzetto.png",
+        accesso: "ok",
+        categoria: "edifici",
+        infoUtili: {
+          orari: "Variabili in base alle attività sportive",
+          contatti: "+39 0172 412912",
+          sito: "https://www.comune.bra.cn.it/it/page/sport-e-tempo-libero"
+        },
+        accessibilita: {
+          sediaRotelle: "Informazioni da verificare",
+          ascensore: "Informazioni da verificare",
+          bagno: "Informazioni da verificare",
+          parcheggio: "Informazioni da verificare",
+          guide: "Informazioni da verificare",
+          note: "Orari legati alle attività programmate."
+        }
+      },
+      stadio_attilio_bravi: {
+        nome: "Stadio Attilio Bravi",
+        lat: 44.7068,
+        lng: 7.8506,
+        indirizzo: "Viale Madonna dei Fiori 91, 12042 Bra (CN)",
+        descrizione: "Stadio cittadino usato per allenamenti e partite.",
+        pagina: "edifici/stadio-attilio-bravi.html",
+        foto: "stadio.png",
+        accesso: "ok",
+        categoria: "edifici",
+        infoUtili: {
+          orari: "Variabili in base ad allenamenti e partite",
+          contatti: "+39 0172 421176",
+          sito: "https://www.acbra.it/"
+        },
+        accessibilita: {
+          sediaRotelle: "Informazioni da verificare",
+          ascensore: "Informazioni da verificare",
+          bagno: "Informazioni da verificare",
+          parcheggio: "Informazioni da verificare",
+          guide: "Informazioni da verificare",
+          note: "Verificare accesso durante eventi sportivi."
+        }
+      },
+      skatepark_bra: {
+        nome: "SkatePark Panathlon Club Bra",
+        lat: 44.6960,
+        lng: 7.8657,
+        indirizzo: "Via Edoardo Brizio 12, 12042 Bra (CN)",
+        descrizione: "Area sportiva all'aperto dedicata allo skate.",
+        pagina: "edifici/skatepark-panathlon-club-bra.html",
+        foto: "skatepark.png",
+        accesso: "ok",
+        categoria: "edifici",
+        infoUtili: {
+          orari: "Aperto 24 ore su 24",
+          contatti: "Informazioni non disponibili",
+          sito: "https://www.comune.bra.cn.it/it/page/sport-e-tempo-libero"
+        },
+        accessibilita: {
+          sediaRotelle: "Informazioni da verificare",
+          ascensore: "Non presente",
+          bagno: "Informazioni da verificare",
+          parcheggio: "Informazioni da verificare",
+          guide: "Informazioni da verificare",
+          note: "Area esterna. Verificare condizioni del percorso."
+        }
+      },
+      piscina_coperta_bra: {
+        nome: "Piscina Coperta di Bra",
+        lat: 44.6927,
+        lng: 7.8648,
+        indirizzo: "Via Senatore Giovanni Sartori 29, 12042 Bra (CN)",
+        descrizione: "Piscina coperta con attività natatorie e sportive.",
+        pagina: "edifici/piscina-coperta-bra.html",
+        foto: "piscina.png",
+        accesso: "ok",
+        categoria: "edifici",
+        infoUtili: {
+          orari: "Lun–Ven 10:00–21:30; Sab 10:00–18:00; Dom 10:00–13:00",
+          contatti: "+39 0172 054160",
+          sito: "https://www.acqua-company.com/"
+        },
+        accessibilita: {
+          sediaRotelle: "Informazioni da verificare",
+          ascensore: "Informazioni da verificare",
+          bagno: "Informazioni da verificare",
+          parcheggio: "Informazioni da verificare",
+          guide: "Informazioni da verificare",
+          note: "Verificare servizi accessibili della piscina."
         }
       }
     };
