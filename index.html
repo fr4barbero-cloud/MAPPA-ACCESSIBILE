@@ -4723,9 +4723,7 @@ body.mia .category-button[data-category="mia"] {
         marker.bindPopup(`
 
           <div class="popup-title">${number}. ${tappa.nome}</div>
-          <img class="popup-photo" src="${tappa.foto}" alt="Foto di ${tappa.nome}" onerror="this.style.display='none'">
-          <div class="popup-image-space">Spazio immagine</div>
-          <div>${tappa.descrizione}</div>
+          <img class="popup-photo" src="${tappa.foto}" alt="Foto di ${tappa.nome}" onerror="this.style.display='none'"><div>${tappa.descrizione}</div>
 
           <div class="popup-actions">
             <a class="portami-qui" style="background:#c40000 !important; border-color:#c40000 !important; color:#ffffff !important;" href="${googleMapsLink(tappa, "walking")}" target="_blank" rel="noopener">Portami qui</a>
