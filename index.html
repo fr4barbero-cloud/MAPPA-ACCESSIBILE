@@ -3996,6 +3996,17 @@ body:not(.mappa-attiva) #map .leaflet-control-zoom {
   opacity: .45 !important;
 }
 
+
+/* CORREZIONE IMMAGINI POPUP: devono essere visibili se il file esiste */
+.leaflet-popup .popup-photo {
+  display: block !important;
+  width: 100% !important;
+  max-height: 150px !important;
+  object-fit: cover !important;
+  border-radius: 10px !important;
+  margin: 6px 0 8px !important;
+}
+
 </style>
 </head>
 
@@ -4191,7 +4202,7 @@ body:not(.mappa-attiva) #map .leaflet-control-zoom {
         indirizzo: "Strada Fey 1, 12042 Bra (CN)",
         descrizione: "Punto panoramico e simbolo della città di Bra.",
         pagina: "luoghi/la-zizzola.html",
-        foto: "immagini/zizzola.png",
+        foto: "zizzola.png",
         accesso: "ok",
         categoria: "musei",
         infoUtili: {
@@ -4215,7 +4226,7 @@ body:not(.mappa-attiva) #map .leaflet-control-zoom {
         indirizzo: "Via Barbacana 49, 12042 Bra (CN)",
         descrizione: "Chiesa storica progettata da Bernardo Antonio Vittone.",
         pagina: "luoghi/chiesa-santa-chiara.html",
-        foto: "immagini/santachiara.png",
+        foto: "santachiara.png",
         accesso: "ok",
         categoria: "musei",
         infoUtili: {
@@ -4239,7 +4250,7 @@ body:not(.mappa-attiva) #map .leaflet-control-zoom {
         indirizzo: "Piazza Caduti per la Libertà 20, 12042 Bra (CN)",
         descrizione: "Palazzo storico sede di mostre, eventi e iniziative culturali.",
         pagina: "luoghi/palazzo-mathis.html",
-        foto: "immagini/mathis.png",
+        foto: "mathis.png",
         accesso: "ok",
         categoria: "musei",
         infoUtili: {
@@ -4263,7 +4274,7 @@ body:not(.mappa-attiva) #map .leaflet-control-zoom {
         indirizzo: "Via Serra, 12042 Bra (CN)",
         descrizione: "Museo civico con raccolte archeologiche e storiche.",
         pagina: "luoghi/palazzo-traversa.html",
-        foto: "immagini/traversa.png",
+        foto: "traversa.png",
         accesso: "ok",
         categoria: "musei",
         infoUtili: {
@@ -4287,7 +4298,7 @@ body:not(.mappa-attiva) #map .leaflet-control-zoom {
         indirizzo: "Via Craveri 15, 12042 Bra (CN)",
         descrizione: "Museo civico dedicato alla storia naturale.",
         pagina: "luoghi/museo-craveri.html",
-        foto: "immagini/museocraveri.png",
+        foto: "museocraveri.png",
         accesso: "ok",
         categoria: "musei",
         infoUtili: {
@@ -4311,7 +4322,7 @@ body:not(.mappa-attiva) #map .leaflet-control-zoom {
         indirizzo: "Via Ernesto Guala 45, 12042 Bra (CN)",
         descrizione: "Museo dedicato alla storia del giocattolo.",
         pagina: "luoghi/museo-giocattolo.html",
-        foto: "immagini/giocattolo.png",
+        foto: "giocattolo.png",
         accesso: "ok",
         categoria: "musei",
         infoUtili: {
@@ -4335,7 +4346,7 @@ body:not(.mappa-attiva) #map .leaflet-control-zoom {
         indirizzo: "Vicolo Sant'Andrea 1, 12042 Bra (CN)",
         descrizione: "Chiesa parrocchiale del centro storico di Bra.",
         pagina: "luoghi/chiesa-sant-andrea.html",
-        foto: "immagini/santandrea.png",
+        foto: "santandrea.png",
         accesso: "ok",
         categoria: "musei",
         infoUtili: {
