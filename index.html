@@ -3651,6 +3651,218 @@ body.mappa-attiva .leaflet-container {
   }
 }
 
+
+
+    /* Layout equilibrato schede: immagine quadrata a sinistra e pulsanti in colonna a destra */
+    .place-main {
+      display: grid;
+      grid-template-columns: minmax(260px, 1fr) minmax(220px, 0.72fr);
+      gap: 18px;
+      align-items: center;
+    }
+
+    .place-left {
+      min-width: 0;
+    }
+
+    .place-image-box {
+      width: min(100%, 260px);
+      aspect-ratio: 1 / 1;
+      margin: 10px 0 12px 54px;
+    }
+
+    .place-image-box .place-photo,
+    .place-image-box .card-image-space {
+      width: 100% !important;
+      height: 100% !important;
+      max-height: none !important;
+      margin: 0 !important;
+      object-fit: cover !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .place-main .poi-actions {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      gap: 12px !important;
+      align-self: center;
+      margin-top: 0 !important;
+    }
+
+    .place-main .button-link {
+      width: 100% !important;
+      min-height: 60px;
+    }
+
+    @media (max-width: 759px) {
+      .place-main {
+        grid-template-columns: minmax(0, 1fr) minmax(118px, 38%);
+        gap: 10px;
+        align-items: center;
+      }
+
+      .place-image-box {
+        width: min(100%, 180px);
+        margin: 8px 0 10px 46px;
+      }
+
+      .place-main .poi-actions {
+        gap: 8px !important;
+      }
+
+      .place-main .button-link {
+        min-height: 50px !important;
+        padding: 9px 7px !important;
+        font-size: .9rem !important;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .place-main {
+        grid-template-columns: 1fr;
+      }
+
+      .place-image-box {
+        width: min(100%, 220px);
+        margin-left: 46px;
+      }
+
+      .place-main .poi-actions {
+        width: 100%;
+      }
+    }
+
+
+/* NUOVO LAYOUT CARD CENTRATO ED EQUILIBRATO */
+.place-card {
+  padding: 18px !important;
+  border-radius: 24px !important;
+  background: #ffffff !important;
+}
+
+.place-main {
+  width: min(100%, 820px) !important;
+  margin: 0 auto !important;
+  display: grid !important;
+  grid-template-columns: minmax(260px, 1fr) minmax(210px, 250px) !important;
+  gap: 22px !important;
+  align-items: center !important;
+}
+
+.place-left {
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+.place-header {
+  width: 100% !important;
+  display: grid !important;
+  grid-template-columns: auto 1fr !important;
+  gap: 12px !important;
+  align-items: center !important;
+  margin-bottom: 14px !important;
+}
+
+.place-header h3 {
+  margin: 0 0 4px 0 !important;
+}
+
+.place-image-box {
+  width: clamp(210px, 32vw, 300px) !important;
+  aspect-ratio: 1 / 1 !important;
+  margin: 0 auto 14px auto !important;
+  border-radius: 22px !important;
+  overflow: hidden !important;
+  background: #f2f2f2 !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,.12) !important;
+}
+
+.place-image-box .place-photo,
+.place-image-box .card-image-space {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: none !important;
+  margin: 0 !important;
+  object-fit: cover !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.place-description {
+  width: 100% !important;
+  max-width: 560px !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+}
+
+.place-main .poi-actions,
+.place-main .actions {
+  width: 100% !important;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 14px !important;
+  align-self: center !important;
+  margin: 0 !important;
+}
+
+.place-main .button-link {
+  width: 100% !important;
+  min-height: 62px !important;
+  border-radius: 18px !important;
+  padding: 12px 14px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,.13) !important;
+}
+
+@media (max-width: 759px) {
+  .place-card {
+    padding: 14px !important;
+    border-radius: 22px !important;
+  }
+
+  .place-main {
+    width: 100% !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .place-header {
+    margin-bottom: 10px !important;
+  }
+
+  .place-image-box {
+    width: min(78vw, 280px) !important;
+    margin-bottom: 12px !important;
+  }
+
+  .place-description {
+    text-align: left !important;
+    margin-top: 2px !important;
+  }
+
+  .place-main .poi-actions,
+  .place-main .actions {
+    gap: 10px !important;
+  }
+
+  .place-main .button-link {
+    min-height: 54px !important;
+    font-size: .98rem !important;
+  }
+}
+
+@media (min-width: 1000px) {
+  .place-main {
+    grid-template-columns: 1fr 260px !important;
+  }
+}
+
 </style>
 </head>
 
@@ -3665,9 +3877,7 @@ body.mappa-attiva .leaflet-container {
   <main>
     <section id="homeScreen" class="section home-screen">
 <div class="category-grid">
-        <button class="category-button" type="button" data-category="musei" aria-label="Apri musei">
-          Musei
-          <span class="small">Luoghi da visitare</span>
+        <button class="category-button" type="button" data-category="musei" aria-label="Apri musei"> LUOGHI DA VISITARE <span class="small"><i>Turismo in città</i></span>
         </button>
 
         <button class="category-button" type="button" data-category="edifici" aria-label="Apri edifici pubblici">
@@ -3834,129 +4044,178 @@ body.mappa-attiva .leaflet-container {
       - foto
       - accesso: "ok" oppure "parziale"
 
-      Le foto sono predisposte nella cartella img.
+      Le foto non sono incorporate nell'HTML.
+      Metti i file immagine nella stessa cartella dell'HTML.
       Esempio:
-      img/palazzo-comunale.jpg
+      zizzola.png
     */
 
     const tappe = {
-      palazzo: {
-        nome: "Palazzo Comunale",
-        lat: 44.69795,
-        lng: 7.85535,
-        indirizzo: "Piazza centrale",
-        descrizione: "Ingresso senza gradini sul lato destro.",
-        pagina: "luoghi/palazzo-comunale.html",
-        foto: "img/palazzo-comunale.jpg",
-        accesso: "ok",
-        categoria: "edifici",
-        infoUtili: {
-          orari: "INSERISCI QUI GLI ORARI.",
-          contatti: "INSERISCI QUI I CONTATTI.",
-          sito: "INSERISCI QUI IL SITO INTERNET."
-        },
-        accessibilita: {
-          sediaRotelle: "Sì",
-          ascensore: "Sì",
-          bagno: "Sì",
-          parcheggio: "Sì",
-          guide: "Sì",
-          note: "Informazioni da completare"
-        }
-      },
-      museo: {
-        nome: "Museo Civico",
-        lat: 44.6991,
-        lng: 7.85815,
-        indirizzo: "Via Roma 10",
-        descrizione: "Ingresso accessibile e ascensore interno.",
-        pagina: "luoghi/museo-civico.html",
-        foto: "img/museo-civico.jpg",
+      zizzola: {
+        nome: "La Zizzola",
+        lat: 44.69385,
+        lng: 7.85315,
+        indirizzo: "Strada Fey 1, 12042 Bra (CN)",
+        descrizione: "Punto panoramico e simbolo della città di Bra.",
+        pagina: "luoghi/la-zizzola.html",
+        foto: "zizzola.png",
         accesso: "ok",
         categoria: "musei",
         infoUtili: {
-          orari: "INSERISCI QUI GLI ORARI.",
-          contatti: "INSERISCI QUI I CONTATTI.",
-          sito: "INSERISCI QUI IL SITO INTERNET."
+          orari: "Sabato e domenica 10:00–18:00",
+          contatti: "+39 0172 430185",
+          sito: "Musei di Bra - Zizzola"
         },
         accessibilita: {
           sediaRotelle: "Sì",
-          ascensore: "Sì",
-          bagno: "Sì",
-          parcheggio: "Sì",
-          guide: "Sì",
+          ascensore: "Informazioni da verificare",
+          bagno: "Informazioni da verificare",
+          parcheggio: "Informazioni da verificare",
+          guide: "Informazioni da verificare",
           note: "Informazioni da completare"
         }
       },
-      biblioteca: {
-        nome: "Biblioteca Civica",
-        lat: 44.69685,
-        lng: 7.8537,
-        indirizzo: "Via della Biblioteca 3",
-        descrizione: "Ingresso piano e ambiente tranquillo.",
-        pagina: "luoghi/biblioteca-civica.html",
-        foto: "img/biblioteca-civica.jpg",
+      santa_chiara: {
+        nome: "Chiesa di Santa Chiara",
+        lat: 44.69766,
+        lng: 7.85286,
+        indirizzo: "Via Barbacana 49, 12042 Bra (CN)",
+        descrizione: "Chiesa storica progettata da Bernardo Antonio Vittone.",
+        pagina: "luoghi/chiesa-santa-chiara.html",
+        foto: "santachiara.png",
         accesso: "ok",
-        categoria: "edifici",
+        categoria: "musei",
         infoUtili: {
-          orari: "INSERISCI QUI GLI ORARI.",
-          contatti: "INSERISCI QUI I CONTATTI.",
-          sito: "INSERISCI QUI IL SITO INTERNET."
+          orari: "Indicativamente 10:00–18:00, variabili durante le funzioni religiose",
+          contatti: "+39 0172 413148",
+          sito: "Città e Cattedrali - Santa Chiara"
         },
         accessibilita: {
           sediaRotelle: "Sì",
-          ascensore: "Sì",
-          bagno: "Sì",
-          parcheggio: "Sì",
-          guide: "Sì",
+          ascensore: "Informazioni da verificare",
+          bagno: "Informazioni da verificare",
+          parcheggio: "Informazioni da verificare",
+          guide: "Informazioni da verificare",
           note: "Informazioni da completare"
         }
       },
-      giardino: {
-        nome: "Giardino Storico",
-        lat: 44.69595,
-        lng: 7.85635,
-        indirizzo: "Viale del Giardino",
-        descrizione: "Percorso largo con panchine.",
-        pagina: "luoghi/giardino-storico.html",
-        foto: "img/giardino-storico.jpg",
+      palazzo_mathis: {
+        nome: "Palazzo Mathis",
+        lat: 44.69793,
+        lng: 7.85545,
+        indirizzo: "Piazza Caduti per la Libertà 20, 12042 Bra (CN)",
+        descrizione: "Palazzo storico sede di mostre, eventi e iniziative culturali.",
+        pagina: "luoghi/palazzo-mathis.html",
+        foto: "mathis.png",
         accesso: "ok",
-        categoria: "locali",
+        categoria: "musei",
         infoUtili: {
-          orari: "INSERISCI QUI GLI ORARI.",
-          contatti: "INSERISCI QUI I CONTATTI.",
-          sito: "INSERISCI QUI IL SITO INTERNET."
+          orari: "Variabili in base a mostre ed eventi",
+          contatti: "+39 0172 430185",
+          sito: "Palazzo Mathis"
         },
         accessibilita: {
           sediaRotelle: "Sì",
-          ascensore: "Sì",
-          bagno: "Sì",
-          parcheggio: "Sì",
-          guide: "Sì",
+          ascensore: "Informazioni da verificare",
+          bagno: "Informazioni da verificare",
+          parcheggio: "Informazioni da verificare",
+          guide: "Informazioni da verificare",
           note: "Informazioni da completare"
         }
       },
-      teatro: {
-        nome: "Teatro Civico",
-        lat: 44.69855,
-        lng: 7.85235,
-        indirizzo: "Corso Teatro 8",
-        descrizione: "Accesso laterale consigliato.",
-        pagina: "luoghi/teatro-civico.html",
-        foto: "img/teatro-civico.jpg",
-        accesso: "parziale",
-        categoria: "locali",
+      palazzo_traversa: {
+        nome: "Palazzo Traversa – Museo Civico di Archeologia",
+        lat: 44.6991,
+        lng: 7.85405,
+        indirizzo: "Via Serra, 12042 Bra (CN)",
+        descrizione: "Museo civico con raccolte archeologiche e storiche.",
+        pagina: "luoghi/palazzo-traversa.html",
+        foto: "traversa.png",
+        accesso: "ok",
+        categoria: "musei",
         infoUtili: {
-          orari: "INSERISCI QUI GLI ORARI.",
-          contatti: "INSERISCI QUI I CONTATTI.",
-          sito: "INSERISCI QUI IL SITO INTERNET."
+          orari: "Giovedì 15:00–18:00; domenica 10:00–12:30 e 14:30–17:30",
+          contatti: "+39 0172 423880",
+          sito: "Musei di Bra - Palazzo Traversa"
         },
         accessibilita: {
           sediaRotelle: "Sì",
-          ascensore: "Sì",
-          bagno: "Sì",
-          parcheggio: "Sì",
-          guide: "Sì",
+          ascensore: "Informazioni da verificare",
+          bagno: "Informazioni da verificare",
+          parcheggio: "Informazioni da verificare",
+          guide: "Informazioni da verificare",
+          note: "Informazioni da completare"
+        }
+      },
+      museo_craveri: {
+        nome: "Museo Craveri - Museo Civico di Storia Naturale",
+        lat: 44.69745,
+        lng: 7.85765,
+        indirizzo: "Via Craveri 15, 12042 Bra (CN)",
+        descrizione: "Museo civico dedicato alla storia naturale.",
+        pagina: "luoghi/museo-craveri.html",
+        foto: "museocraveri.png",
+        accesso: "ok",
+        categoria: "musei",
+        infoUtili: {
+          orari: "Giovedì 15:00–18:00; domenica 10:00–12:30 e 14:30–17:30",
+          contatti: "+39 0172 412010",
+          sito: "Museo Craveri"
+        },
+        accessibilita: {
+          sediaRotelle: "Sì",
+          ascensore: "Informazioni da verificare",
+          bagno: "Informazioni da verificare",
+          parcheggio: "Informazioni da verificare",
+          guide: "Informazioni da verificare",
+          note: "Informazioni da completare"
+        }
+      },
+      museo_giocattolo: {
+        nome: "Museo del Giocattolo",
+        lat: 44.69295,
+        lng: 7.8571,
+        indirizzo: "Via Ernesto Guala 45, 12042 Bra (CN)",
+        descrizione: "Museo dedicato alla storia del giocattolo.",
+        pagina: "luoghi/museo-giocattolo.html",
+        foto: "giocattolo.png",
+        accesso: "ok",
+        categoria: "musei",
+        infoUtili: {
+          orari: "Domenica 10:30–12:30 e 14:30–17:30",
+          contatti: "+39 0172 430185",
+          sito: "Museo del Giocattolo Bra"
+        },
+        accessibilita: {
+          sediaRotelle: "Sì",
+          ascensore: "Informazioni da verificare",
+          bagno: "Informazioni da verificare",
+          parcheggio: "Informazioni da verificare",
+          guide: "Informazioni da verificare",
+          note: "Informazioni da completare"
+        }
+      },
+      sant_andrea: {
+        nome: "Chiesa di Sant'Andrea Apostolo",
+        lat: 44.6984,
+        lng: 7.85605,
+        indirizzo: "Vicolo Sant'Andrea 1, 12042 Bra (CN)",
+        descrizione: "Chiesa parrocchiale del centro storico di Bra.",
+        pagina: "luoghi/chiesa-sant-andrea.html",
+        foto: "sant'andrea.png",
+        accesso: "ok",
+        categoria: "musei",
+        infoUtili: {
+          orari: "Lunedì–venerdì 09:00–11:30; domenica 11:00–12:00",
+          contatti: "+39 0172 413764",
+          sito: "Parrocchie Bra - Sant'Andrea"
+        },
+        accessibilita: {
+          sediaRotelle: "Sì",
+          ascensore: "Informazioni da verificare",
+          bagno: "Informazioni da verificare",
+          parcheggio: "Informazioni da verificare",
+          guide: "Informazioni da verificare",
           note: "Informazioni da completare"
         }
       }
@@ -3986,7 +4245,7 @@ body.mappa-attiva .leaflet-container {
     };
 
     const categorie = {
-      musei: { nome: "Musei", descrizione: "Mappa e tappe dei musei accessibili." },
+      musei: { nome: "Luoghi da visitare", descrizione: "Turismo in città." },
       edifici: { nome: "Edifici pubblici", descrizione: "Mappa e tappe di Comune, biblioteca e altri servizi pubblici." },
 
       mia: { nome: "La mia mappa", descrizione: "Mappa personale con luoghi preferiti e tappe scelte." }
@@ -4393,32 +4652,38 @@ body.mappa-attiva .leaflet-container {
         li.className = "place-card";
 
         li.innerHTML = `
-          <div class="place-header">
-            <span class="number">${number}</span>
-            <div>
-              <h3>${tappa.nome}</h3>
-              <div class="place-meta">${tappa.indirizzo}</div>
+          <div class="place-main">
+            <div class="place-left">
+              <div class="place-header">
+                <span class="number">${number}</span>
+                <div>
+                  <h3>${tappa.nome}</h3>
+                  <div class="place-meta">${tappa.indirizzo}</div>
+                </div>
+              </div>
+
+              <div class="place-image-box">
+                ${tappa.foto ? `<img class="place-photo" src="${tappa.foto}" alt="Foto di ${tappa.nome}" onerror="this.replaceWith(Object.assign(document.createElement('div'), {className: 'card-image-space', textContent: 'Spazio immagine'}))">` : `<div class="card-image-space">Spazio immagine</div>`}
+              </div>
+
+              <p class="place-description">${tappa.descrizione}</p>
             </div>
-          </div>
 
-          <img class="place-photo" src="${tappa.foto}" alt="Foto di ${tappa.nome}" onerror="this.style.display='none'">
-          <div class="card-image-space">Spazio immagine</div>
-          <p class="place-description">${tappa.descrizione}</p>
-
-          <div class="actions poi-actions" aria-label="Azioni per ${tappa.nome}">
-            <a class="button-link portami-qui" style="background:#c40000 !important; border-color:#c40000 !important; color:#ffffff !important;" href="${googleMapsLink(tappa, "walking")}" target="_blank" rel="noopener">
-              Portami qui
-            </a>
-            ${tappa.isPersonal ? `<a class="button-link info open-note" href="#" data-index="${index}">
-              NOTE
-            </a>` : `<a class="button-link info open-info-utili" href="#" data-index="${index}">
-              Info utili
-            </a>`}
-            ${tappa.isPersonal ? `<a class="button-link delete-place" href="#" data-delete-index="${tappa.personalIndex}">
-              ELIMINA LUOGO
-            </a>` : `<a class="button-link scheda-luogo open-scheda" href="#" data-index="${index}">
-              Scheda del luogo
-            </a>`}
+            <div class="actions poi-actions" aria-label="Azioni per ${tappa.nome}">
+              <a class="button-link portami-qui" style="background:#c40000 !important; border-color:#c40000 !important; color:#ffffff !important;" href="${googleMapsLink(tappa, "walking")}" target="_blank" rel="noopener">
+                Portami qui
+              </a>
+              ${tappa.isPersonal ? `<a class="button-link info open-note" href="#" data-index="${index}">
+                NOTE
+              </a>` : `<a class="button-link info open-info-utili" href="#" data-index="${index}">
+                Info utili
+              </a>`}
+              ${tappa.isPersonal ? `<a class="button-link delete-place" href="#" data-delete-index="${tappa.personalIndex}">
+                ELIMINA LUOGO
+              </a>` : `<a class="button-link scheda-luogo open-scheda" href="#" data-index="${index}">
+                Scheda del luogo
+              </a>`}
+            </div>
           </div>
         `;
 
