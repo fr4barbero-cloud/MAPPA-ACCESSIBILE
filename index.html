@@ -3863,6 +3863,120 @@ body.mappa-attiva .leaflet-container {
   }
 }
 
+
+
+/* CORREZIONE MENU CATEGORIE: IN ALTO, GRANDI, IN RIGA */
+#homeScreen .category-grid,
+.category-grid {
+  position: static !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  top: auto !important;
+  z-index: auto !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 14px !important;
+  width: 100% !important;
+  height: auto !important;
+  padding: 0 !important;
+  margin: 0 0 16px 0 !important;
+  background: transparent !important;
+  border-top: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.category-button {
+  width: 100% !important;
+  min-height: 96px !important;
+  height: auto !important;
+  padding: 18px 12px !important;
+  border-width: 4px !important;
+  border-radius: 20px !important;
+  font-size: 1.08rem !important;
+  line-height: 1.15 !important;
+  font-weight: 900 !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 14px rgba(0,0,0,.16) !important;
+}
+
+.category-button .small {
+  display: block !important;
+  margin-top: 8px !important;
+  font-size: .82rem !important;
+  line-height: 1.15 !important;
+}
+
+.category-button::before {
+  display: none !important;
+  content: none !important;
+}
+
+body.musei .category-button[data-category="musei"],
+body.edifici .category-button[data-category="edifici"],
+body.mia .category-button[data-category="mia"] {
+  outline: 4px solid #111111 !important;
+  outline-offset: 3px !important;
+}
+
+@media (max-width: 759px) {
+  main {
+    padding: 8px !important;
+    padding-bottom: max(14px, env(safe-area-inset-bottom)) !important;
+  }
+
+  #homeScreen {
+    display: block !important;
+    margin-bottom: 12px !important;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    padding: 0 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .category-button {
+    min-height: 82px !important;
+    padding: 12px 6px !important;
+    border-radius: 16px !important;
+    border-width: 3px !important;
+    font-size: .86rem !important;
+    line-height: 1.1 !important;
+  }
+
+  .category-button .small {
+    display: block !important;
+    font-size: .68rem !important;
+    margin-top: 5px !important;
+    line-height: 1.1 !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .category-grid {
+    gap: 6px !important;
+  }
+
+  .category-button {
+    min-height: 76px !important;
+    padding: 10px 4px !important;
+    font-size: .78rem !important;
+    border-radius: 14px !important;
+  }
+
+  .category-button .small {
+    font-size: .62rem !important;
+  }
+}
+
 </style>
 </head>
 
@@ -4202,7 +4316,7 @@ body.mappa-attiva .leaflet-container {
         indirizzo: "Vicolo Sant'Andrea 1, 12042 Bra (CN)",
         descrizione: "Chiesa parrocchiale del centro storico di Bra.",
         pagina: "luoghi/chiesa-sant-andrea.html",
-        foto: "sant'andrea.png",
+        foto: "sant\'andrea(2).png",
         accesso: "ok",
         categoria: "musei",
         infoUtili: {
